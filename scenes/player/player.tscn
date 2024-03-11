@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bycmbjkvio3uj"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_pbwq4"]
+[ext_resource type="Texture2D" uid="uid://b3a51ve3qqns7" path="res://assets/graphic/debug_free_character_1-3.png" id="2_2g5hk"]
+[ext_resource type="Script" path="res://scenes/player/player_ui.gd" id="3_si45y"]
+[ext_resource type="Texture2D" uid="uid://rnnwdcugup6d" path="res://assets/graphic/ui/bgload.png" id="4_ssveq"]
+[ext_resource type="Texture2D" uid="uid://b7vari54l8do0" path="res://assets/graphic/ui/load.png" id="5_wfk6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tplyb"]
+size = Vector2(14, 18)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_pbwq4")
+
+[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_tplyb")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_2g5hk")
+hframes = 12
+vframes = 8
+
+[node name="Silliness" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -11.25)
+scale = Vector2(0.05, 0.05)
+
+[node name="PlayerUI" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("3_si45y")
+
+[node name="Health" type="TextureProgressBar" parent="PlayerUI"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 1.0
+grow_horizontal = 2
+texture_under = ExtResource("4_ssveq")
+texture_progress = ExtResource("5_wfk6j")
+texture_progress_offset = Vector2(8.515, 3.655)
