@@ -6,9 +6,9 @@ extends CharacterBody2D
 @export var export_speed: float = 100.0
 
 
-@onready var _self: CharacterBody2D = $"."
-@onready var _silliness_sprite: Sprite2D = %Silliness
-@onready var _enemy_sprite: Sprite2D = %EnemySprite2D
+@export var _self: CharacterBody2D
+@export var _silliness_sprite: Sprite2D
+@export var _enemy_sprite: Sprite2D 
 
 
 var peculiarities: RPeculiarities = RPeculiarities.new()

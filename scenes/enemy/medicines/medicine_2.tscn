@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://nttivvmhw13s"]
+
+[ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_ep4on"]
+[ext_resource type="Texture2D" uid="uid://cab5ey23rifvi" path="res://assets/graphic/enemies/enemy_2.png" id="2_ifeec"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uaxvf"]
+radius = 11.0
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("_self", "_silliness_sprite", "_enemy_sprite")]
+script = ExtResource("1_ep4on")
+_self = NodePath(".")
+_silliness_sprite = NodePath("Silliness")
+_enemy_sprite = NodePath("EnemySprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uaxvf")
+
+[node name="EnemySprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_ifeec")
+
+[node name="Silliness" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -12)
+scale = Vector2(0.05, 0.05)
