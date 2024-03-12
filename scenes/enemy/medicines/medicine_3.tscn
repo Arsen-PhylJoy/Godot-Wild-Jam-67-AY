@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://b27oba0ljoq66"]
+[gd_scene load_steps=5 format=3 uid="uid://b27oba0ljoq66"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_end08"]
 [ext_resource type="Texture2D" uid="uid://b2kv4iq82ytrr" path="res://assets/graphic/enemies/enemy_3.png" id="2_jwukt"]
+[ext_resource type="Texture2D" uid="uid://b47ktmt2r6icf" path="res://assets/graphic/enemies/enemy_3_eye.png" id="3_dmsvh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ae30e"]
-radius = 5.0
-height = 24.0
+radius = 19.0
+height = 95.0
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("_self", "_silliness_sprite", "_enemy_sprite")]
 script = ExtResource("1_end08")
+export_speed = 125.0
 _self = NodePath(".")
 _silliness_sprite = NodePath("Silliness")
 _enemy_sprite = NodePath("EnemySprite2D")
@@ -18,8 +20,13 @@ shape = SubResource("CapsuleShape2D_ae30e")
 
 [node name="EnemySprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_jwukt")
+
+[node name="Enemy3Eye" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, -13)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_dmsvh")
 
 [node name="Silliness" type="Sprite2D" parent="."]
 unique_name_in_owner = true
