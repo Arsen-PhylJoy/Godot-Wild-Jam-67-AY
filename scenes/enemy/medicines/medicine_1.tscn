@@ -31,5 +31,5 @@ texture = ExtResource("3_85jvd")
 
 [node name="Silliness" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-1, -7)
-scale = Vector2(0.05, 0.05)
+position = Vector2(-1, -48)
+scale = Vector2(0.25, 0.25)

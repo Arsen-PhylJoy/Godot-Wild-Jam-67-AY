@@ -1,29 +1,189 @@
-[gd_scene load_steps=7 format=3 uid="uid://bycmbjkvio3uj"]
+[gd_scene load_steps=11 format=3 uid="uid://bycmbjkvio3uj"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_pbwq4"]
+[ext_resource type="Texture2D" uid="uid://c47mukvoqk0tf" path="res://parasit_0.png" id="2_fulpb"]
 [ext_resource type="Script" path="res://scenes/player/player_ui.gd" id="3_si45y"]
+[ext_resource type="Texture2D" uid="uid://bkii88jvg8ngd" path="res://parasit_eye.png" id="3_xgwcl"]
 [ext_resource type="Texture2D" uid="uid://rnnwdcugup6d" path="res://assets/graphic/not_release_assets/ui/bgload.png" id="4_ssveq"]
 [ext_resource type="Texture2D" uid="uid://b7vari54l8do0" path="res://assets/graphic/not_release_assets/ui/load.png" id="5_wfk6j"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tplyb"]
-size = Vector2(14, 18)
+[sub_resource type="Animation" id="Animation_sc5k5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pany8"]
-load_path = "res://.godot/imported/debug_free_character_1-3.png-375b5bab556ca843b4da498aeec3a13e.ctex"
+[sub_resource type="Animation" id="Animation_ousdr"]
+resource_name = "movement_left"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Right:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Left:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Eyes:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15.75, -12)]
+}
+
+[sub_resource type="Animation" id="Animation_m050r"]
+resource_name = "movement_right"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Right:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Left:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Eyes:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16.5, -11.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_is25y"]
+_data = {
+"RESET": SubResource("Animation_sc5k5"),
+"movement_left": SubResource("Animation_ousdr"),
+"movement_right": SubResource("Animation_m050r")
+}
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_pbwq4")
 
-[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_tplyb")
+[node name="Left" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-18.75, -16, -12, -17.25, -6.5, -15, -5.75, -7.5, 7.25, -7.5, 12.5, -3.5, 19, 5.5, 21.25, 10.75, 14, 11.5, -0.5, 11.75, -8.75, 14.5, -14.75, 10, -13.75, 0.75, -11.25, -5.75, -20.75, -10)
+
+[node name="Right" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(10, -17, 17.5, -15.5, 20.5, -10.75, 11, -11.25, 10.25, -6.5, 13.5, 1.25, 14.75, 4, 14.5, 6.5, 9.5, 13.75, 1.5, 12.5, -6.5, 9.75, -18.5, 11.75, -21.75, 9.75, -9, -6.75, 4.5, -7.75)
+disabled = true
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-texture = SubResource("CompressedTexture2D_pany8")
-hframes = 12
-vframes = 8
+modulate = Color(0.458824, 0.482353, 1, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_fulpb")
+hframes = 3
+vframes = 2
+frame = 1
+
+[node name="Eyes" type="Sprite2D" parent="."]
+position = Vector2(-15.75, -12)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_xgwcl")
 
 [node name="Silliness" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -46,3 +206,9 @@ grow_horizontal = 2
 texture_under = ExtResource("4_ssveq")
 texture_progress = ExtResource("5_wfk6j")
 texture_progress_offset = Vector2(8.515, 3.655)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_is25y")
+}
