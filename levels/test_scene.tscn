@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwag35tr4kbg2"]
+
+[ext_resource type="Texture2D" uid="uid://is5dhf2cenit" path="res://assets/graphic/enemies/enemy_1.png" id="1_mkbou"]
+[ext_resource type="Texture2D" uid="uid://cab5ey23rifvi" path="res://assets/graphic/enemies/enemy_2.png" id="2_572dk"]
+[ext_resource type="Texture2D" uid="uid://b2kv4iq82ytrr" path="res://assets/graphic/enemies/enemy_3.png" id="3_2fqh8"]
+[ext_resource type="Texture2D" uid="uid://b7du66mp7w35c" path="res://assets/graphic/enemies/enemy_4.png" id="4_uvufl"]
+
+[node name="TestScene" type="Node"]
+
+[node name="Enemy1" type="Sprite2D" parent="."]
+modulate = Color(0.25098, 1, 1, 1)
+position = Vector2(70, 189)
+texture = ExtResource("1_mkbou")
+
+[node name="Enemy2" type="Sprite2D" parent="."]
+modulate = Color(1, 0.329412, 1, 1)
+position = Vector2(579, 179)
+texture = ExtResource("2_572dk")
+
+[node name="Enemy3" type="Sprite2D" parent="."]
+modulate = Color(1, 0.231373, 0.0117647, 1)
+position = Vector2(45, -337)
+texture = ExtResource("3_2fqh8")
+
+[node name="Enemy4" type="Sprite2D" parent="."]
+modulate = Color(0, 0.980392, 0.129412, 1)
+position = Vector2(871, -238)
+texture = ExtResource("4_uvufl")

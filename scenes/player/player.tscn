@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bycmbjkvio3uj"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_pbwq4"]
-[ext_resource type="Texture2D" uid="uid://b3a51ve3qqns7" path="res://assets/graphic/debug_free_character_1-3.png" id="2_2g5hk"]
+[ext_resource type="Texture2D" uid="uid://b3a51ve3qqns7" path="res://assets/graphic/not_release_assets/debug_free_character_1-3.png" id="2_2g5hk"]
 [ext_resource type="Script" path="res://scenes/player/player_ui.gd" id="3_si45y"]
-[ext_resource type="Texture2D" uid="uid://rnnwdcugup6d" path="res://assets/graphic/ui/bgload.png" id="4_ssveq"]
-[ext_resource type="Texture2D" uid="uid://b7vari54l8do0" path="res://assets/graphic/ui/load.png" id="5_wfk6j"]
+[ext_resource type="Texture2D" uid="uid://rnnwdcugup6d" path="res://assets/graphic/not_release_assets/ui/bgload.png" id="4_ssveq"]
+[ext_resource type="Texture2D" uid="uid://b7vari54l8do0" path="res://assets/graphic/not_release_assets/ui/load.png" id="5_wfk6j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tplyb"]
 size = Vector2(14, 18)

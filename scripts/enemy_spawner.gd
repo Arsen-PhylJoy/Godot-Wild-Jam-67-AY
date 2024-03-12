@@ -1,14 +1,23 @@
 class_name EnemySpawner
 extends Node
 
-@export var _player_ref: Player
+@export var player_ref: Player
+@export var allow_spawn_area: Rect2
 
-var enemy_ps: PackedScene = preload("res://scenes/enemy/enemy.tscn")
+var enemies_ps: Array[PackedScene] = [  preload("res://scenes/enemy/medicines/medicine_1.tscn"),
+										preload("res://scenes/enemy/medicines/medicine_2.tscn"),
+										preload("res://scenes/enemy/medicines/medicine_3.tscn"),
+										preload("res://scenes/enemy/medicines/medicine_4.tscn")  ]
 
 var _can_create_enemies: bool = true
+var _creation_timer: Timer
 
-func _process(_delta: float) -> void:
-	create_enemies()
+func _ready() -> void:
+	_creation_timer = Timer.new()
+	add_child(_creation_timer)
+	_creation_timer.wait_time = 4.5
+	_creation_timer.start()
+	if _creation_timer.timeout.connect(create_enemies) : printerr("Fail: ",get_stack())
 
 func create_enemies()->void:
 	if(!_can_create_enemies):
@@ -20,29 +29,38 @@ func create_enemies()->void:
 	
 	
 func _spawm_enemies()->void:
-	if(_player_ref == null):
+	if(player_ref == null):
 		return
 	for i: int in 5:
-		var enemy: Enemy = enemy_ps.instantiate() as Enemy
+		var enemy: Enemy = (enemies_ps.pick_random() as PackedScene).instantiate() as Enemy
 		$".".add_child(enemy)
-		enemy.global_position = generate_random_position_on_rectangle(get_window().size)
-		enemy.scale*=4
-	
+		enemy.global_position = generate_random_position_on_rectangle(get_window().size * randf_range(1.1,1.3))
+
 func generate_random_position_on_rectangle(size : Vector2)->Vector2:
-	var side: int = randi_range(0, 3)
-	var x : float 
-	var y : float 
-	if side == 0:
-		x = randf_range(0, size.x)
-		y = size.y
-	elif side == 1:
-		x = size.x
-		y = randf_range(0, size.y)
-	elif side == 2:
-		x = randf_range(0, size.x)
-		y = 0
-	elif side == 3:
-		x = 0
-		y = randf_range(0, size.y)
-	
-	return Vector2(x+140, y+140)
+	var top_left: Vector2 = Vector2(player_ref.global_position.x - size.x/2, player_ref.global_position.y - size.y/2)
+	var top_right: Vector2 = Vector2(player_ref.global_position.x + size.x/2, player_ref.global_position.y - size.y/2)
+	var bottom_left: Vector2 = Vector2(player_ref.global_position.x - size.x/2, player_ref.global_position.y + size.y/2)
+	var bottom_right: Vector2 = Vector2(player_ref.global_position.x + size.x/2, player_ref.global_position.y + size.y/2)
+	var spawn_pos_1:Vector2 = Vector2.ZERO
+	var spawn_pos_2:Vector2 = Vector2.ZERO
+	var x_spawn: float = -10000.0
+	var y_spawn: float = -10000.0
+	while (!allow_spawn_area.has_point(Vector2(x_spawn,y_spawn))):
+		var pos_side: int = [0,1,2,3].pick_random()
+		match pos_side:
+			0:
+				spawn_pos_1 = top_left
+				spawn_pos_2 = top_right
+			1:
+				spawn_pos_1 = bottom_left
+				spawn_pos_2 = bottom_right
+			2:
+				spawn_pos_1 = top_right
+				spawn_pos_2 = bottom_right
+			3:
+				spawn_pos_1 = top_left
+				spawn_pos_2 = bottom_left
+		x_spawn = randf_range(spawn_pos_1.x,spawn_pos_2.x)
+		y_spawn = randf_range(spawn_pos_1.y,spawn_pos_2.y)
+		print(x_spawn, '/',  y_spawn)
+	return Vector2(x_spawn,y_spawn)

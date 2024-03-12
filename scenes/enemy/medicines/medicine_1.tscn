@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ntevg7dg0p6k"]
+
+[ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_f0ca6"]
+[ext_resource type="Texture2D" uid="uid://is5dhf2cenit" path="res://assets/graphic/enemies/enemy_1.png" id="1_lb1xl"]
+[ext_resource type="Texture2D" uid="uid://dog4oi8dwclxf" path="res://assets/graphic/enemies/enemy_1_eye.png" id="3_85jvd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wl32p"]
+radius = 31.95
+height = 94.1
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("_self", "_silliness_sprite", "_enemy_sprite")]
+script = ExtResource("1_f0ca6")
+export_speed = 60.0
+_self = NodePath(".")
+_silliness_sprite = NodePath("Silliness")
+_enemy_sprite = NodePath("EnemySprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -0.716228
+shape = SubResource("CapsuleShape2D_wl32p")
+
+[node name="EnemySprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_lb1xl")
+
+[node name="Enemy1Eye" type="Sprite2D" parent="."]
+position = Vector2(-7, -4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85jvd")
+
+[node name="Silliness" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, -7)
+scale = Vector2(0.05, 0.05)
