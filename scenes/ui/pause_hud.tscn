@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct3o3xncle875"]
+
+[ext_resource type="Script" path="res://scenes/ui/pause_hud.gd" id="1_gus52"]
+[ext_resource type="Theme" uid="uid://y2a6okj5k8kv" path="res://resources/ui.tres" id="2_40fco"]
+[ext_resource type="PackedScene" uid="uid://b2ncqtse6eo6a" path="res://scenes/ui/sound_settings.tscn" id="3_nphsk"]
+[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="3_utg6c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xyeen"]
+shader = ExtResource("3_utg6c")
+shader_parameter/lod = 2.425
+
+[node name="PauseHud" type="CanvasLayer"]
+script = ExtResource("1_gus52")
+
+[node name="Wrapper" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_40fco")
+
+[node name="Panel" type="Panel" parent="Wrapper"]
+material = SubResource("ShaderMaterial_xyeen")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Wrapper"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -74.0
+offset_right = 107.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Wrapper/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Wrapper/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Continue" type="Button" parent="Wrapper/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Continue"
+
+[node name="Spacer" type="Control" parent="Wrapper/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="SoundSettings" parent="Wrapper/MarginContainer/HBoxContainer" instance=ExtResource("3_nphsk")]
+layout_mode = 2

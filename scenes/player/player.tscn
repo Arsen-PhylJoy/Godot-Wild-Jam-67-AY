@@ -1,13 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://bycmbjkvio3uj"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_pbwq4"]
-[ext_resource type="Texture2D" uid="uid://b3a51ve3qqns7" path="res://assets/graphic/not_release_assets/debug_free_character_1-3.png" id="2_2g5hk"]
 [ext_resource type="Script" path="res://scenes/player/player_ui.gd" id="3_si45y"]
 [ext_resource type="Texture2D" uid="uid://rnnwdcugup6d" path="res://assets/graphic/not_release_assets/ui/bgload.png" id="4_ssveq"]
 [ext_resource type="Texture2D" uid="uid://b7vari54l8do0" path="res://assets/graphic/not_release_assets/ui/load.png" id="5_wfk6j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tplyb"]
 size = Vector2(14, 18)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pany8"]
+load_path = "res://.godot/imported/debug_free_character_1-3.png-375b5bab556ca843b4da498aeec3a13e.ctex"
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(4, 4)
@@ -19,7 +21,7 @@ shape = SubResource("RectangleShape2D_tplyb")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-texture = ExtResource("2_2g5hk")
+texture = SubResource("CompressedTexture2D_pany8")
 hframes = 12
 vframes = 8
 

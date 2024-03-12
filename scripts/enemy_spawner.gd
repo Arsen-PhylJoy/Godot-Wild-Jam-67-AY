@@ -62,5 +62,4 @@ func generate_random_position_on_rectangle(size : Vector2)->Vector2:
 				spawn_pos_2 = bottom_left
 		x_spawn = randf_range(spawn_pos_1.x,spawn_pos_2.x)
 		y_spawn = randf_range(spawn_pos_1.y,spawn_pos_2.y)
-		print(x_spawn, '/',  y_spawn)
 	return Vector2(x_spawn,y_spawn)

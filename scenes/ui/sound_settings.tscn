@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2ncqtse6eo6a"]
+
+[ext_resource type="Theme" uid="uid://y2a6okj5k8kv" path="res://resources/ui.tres" id="1_bytfn"]
+[ext_resource type="Script" path="res://scenes/ui/sound_settings.gd" id="2_qb674"]
+
+[node name="SoundSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bytfn")
+script = ExtResource("2_qb674")
+
+[node name="SoundContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 63.0
+offset_bottom = 43.0
+
+[node name="MasterHBoxContainer" type="HBoxContainer" parent="SoundContainer"]
+layout_mode = 2
+
+[node name="MasterVBoxContainer" type="VBoxContainer" parent="SoundContainer/MasterHBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MasterLabel" type="Label" parent="SoundContainer/MasterHBoxContainer/MasterVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Master"
+
+[node name="MasterHSlider" type="HSlider" parent="SoundContainer/MasterHBoxContainer/MasterVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MusicVBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 52.0
+offset_right = 48.0
+offset_bottom = 95.0
+
+[node name="MusicLabel" type="Label" parent="MusicVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music"
+
+[node name="MusicHSlider" type="HSlider" parent="MusicVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SFXVBoxContainer2" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 101.0
+offset_right = 42.0
+offset_bottom = 144.0
+
+[node name="SFXLabel" type="Label" parent="SFXVBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SFX"
+
+[node name="SFXHSlider" type="HSlider" parent="SFXVBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2

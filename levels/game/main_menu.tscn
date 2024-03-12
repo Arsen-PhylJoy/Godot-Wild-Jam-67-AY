@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2o53pvb5hv6b"]
+
+[ext_resource type="Script" path="res://levels/game/main_menu.gd" id="1_052tq"]
+[ext_resource type="Theme" uid="uid://y2a6okj5k8kv" path="res://resources/ui.tres" id="2_y5idf"]
+[ext_resource type="PackedScene" uid="uid://b2ncqtse6eo6a" path="res://scenes/ui/sound_settings.tscn" id="3_oeepu"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_052tq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Wrapper" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_y5idf")
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/Wrapper"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 540.0
+offset_top = 206.0
+offset_right = 641.0
+offset_bottom = 278.0
+text = "Play"
+
+[node name="SoundSettings" parent="CanvasLayer/Wrapper" instance=ExtResource("3_oeepu")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.108507
+anchor_top = 0.0864198
+anchor_right = 0.108507
+anchor_bottom = 0.0864198
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
