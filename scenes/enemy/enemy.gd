@@ -6,7 +6,7 @@ signal rewarded(reward: int)
 @export var export_speed: float = 100.0
 @export var big_reward: int = 25
 @export var small_reward: int = 10
-
+@export var _destruction_animation: AnimationPlayer
 @export var _self: CharacterBody2D
 @export var _silliness_sprite: Sprite2D
 @export var _enemy_sprite: Sprite2D 
@@ -58,4 +58,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func destroy_self()->void:
+	(self as CharacterBody2D).process_mode = Node.PROCESS_MODE_DISABLED
+	_destruction_animation.play("destruction")
+	await _destruction_animation.animation_finished
 	queue_free()
