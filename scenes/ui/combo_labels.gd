@@ -31,17 +31,11 @@ func _calculate(reward: int)->void:
 		_lower_multiplicator()
 
 func _update_x_progress_bar(new_value: float)->void:
-	(_x_progess_bar.get_theme_stylebox("Fill") as StyleBoxFlat).bg_color = Color.RED.lerp(Color.GREEN,new_value/100.0)
 	if(new_value>=100):
 		_increase_multiplicator()
 		_x_progess_bar.value = 25
 	elif(new_value<=0):
 		_lower_multiplicator()
-	
-func _random_change_gradient_offsets()->void:
-	var gradient: GradientTexture1D = (_reward_label.material.get("shader_parameter/gradient") as GradientTexture1D)
-	for i: int in gradient.gradient.get_point_count():
-		gradient.gradient.set_offset(i,gradient.gradient.get_offset(i)+randf_range(-0.05,0.05))
 		
 func _lower_multiplicator()->void:
 	_multiplicator = _MULTIPLICATOR.X1
@@ -82,3 +76,8 @@ func  _update_animations()-> void:
 			_reward_labels_animation_player.play("x16_reward_label")
 	else:
 		_multiplicator_animation_player.play("X1")
+
+func _random_change_gradient_offsets()->void:
+	var gradient: GradientTexture1D = (_reward_label.material.get("shader_parameter/gradient") as GradientTexture1D)
+	for i: int in gradient.gradient.get_point_count():
+		gradient.gradient.set_offset(i,gradient.gradient.get_offset(i)+randf_range(-0.05,0.05))

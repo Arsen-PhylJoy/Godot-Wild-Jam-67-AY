@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 			destroy_self()
 		else:
 			(collide_data.get_collider() as Player)._health-=25
+			rewarded.emit(0)
 			destroy_self()
 	move_and_slide()
 
