@@ -1,10 +1,11 @@
 class_name Enemy
 extends CharacterBody2D
 
-
+signal rewarded(reward: int)
 
 @export var export_speed: float = 100.0
-
+@export var big_reward: int = 25
+@export var small_reward: int = 10
 
 @export var _self: CharacterBody2D
 @export var _silliness_sprite: Sprite2D
@@ -40,11 +41,11 @@ func _physics_process(delta: float) -> void:
 	if(collide_data != null and collide_data.get_collider() is Player):
 		var player_peculiarities: RPeculiarities = (collide_data.get_collider() as Player).peculiarities
 		if(peculiarities.color == player_peculiarities.color and peculiarities.silliness_texture == player_peculiarities.silliness_texture):
-			Score.score+=25
+			rewarded.emit(big_reward)
 			destroy_self()
 		elif(peculiarities.color == player_peculiarities.color or peculiarities.silliness_texture == player_peculiarities.silliness_texture):
 			(collide_data.get_collider() as Player).execute_slow_penalty()
-			Score.score+=10
+			rewarded.emit(small_reward)
 			destroy_self()
 		else:
 			(collide_data.get_collider() as Player)._health-=25
