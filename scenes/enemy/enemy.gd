@@ -11,6 +11,7 @@ signal rewarded(reward: int)
 @export var _silliness_sprite: Sprite2D
 @export var _enemy_sprite: Sprite2D 
 
+var _damage_multiplier: float = 1.0
 
 var peculiarities: RPeculiarities = RPeculiarities.new()
 
@@ -31,6 +32,9 @@ func _ready() -> void:
 	elif(peculiarities.color == peculiarities.EColor.GREEN):
 		_enemy_sprite.modulate = Color.GREEN
 	_silliness_sprite.texture = peculiarities.silliness_texture
+	var mult: float =  randf_range(1.0,1.3)
+	(self as CharacterBody2D).scale = Vector2(mult,mult)
+	_damage_multiplier = mult
 
 func _physics_process(delta: float) -> void:
 	if(_player_ref!=null):
@@ -41,14 +45,14 @@ func _physics_process(delta: float) -> void:
 	if(collide_data != null and collide_data.get_collider() is Player):
 		var player_peculiarities: RPeculiarities = (collide_data.get_collider() as Player).peculiarities
 		if(peculiarities.color == player_peculiarities.color and peculiarities.silliness_texture == player_peculiarities.silliness_texture):
-			rewarded.emit(big_reward)
+			rewarded.emit(big_reward * _damage_multiplier)
 			destroy_self()
 		elif(peculiarities.color == player_peculiarities.color or peculiarities.silliness_texture == player_peculiarities.silliness_texture):
 			(collide_data.get_collider() as Player).execute_slow_penalty()
-			rewarded.emit(small_reward)
+			rewarded.emit(small_reward * _damage_multiplier)
 			destroy_self()
 		else:
-			(collide_data.get_collider() as Player)._health-=25
+			(collide_data.get_collider() as Player)._health-=(25.0*_damage_multiplier)
 			rewarded.emit(0)
 			destroy_self()
 	move_and_slide()
