@@ -59,6 +59,6 @@ func _physics_process(delta: float) -> void:
 
 func destroy_self()->void:
 	(self as CharacterBody2D).process_mode = Node.PROCESS_MODE_DISABLED
-	_destruction_animation.play("destruction")
-	await _destruction_animation.animation_finished
+#	_destruction_animation.play("destruction")
+#	await _destruction_animation.animation_finished
 	queue_free()
