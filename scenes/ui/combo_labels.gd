@@ -20,11 +20,9 @@ func _ready() -> void:
 func _calculate(reward: int)->void:
 	var result_reward:int = reward * _multiplicator
 	_current_points+=result_reward
+	Score.score+=result_reward
 	if(result_reward != 0):
-		Score.score+=result_reward
 		_x_progess_bar.value = float(_current_points)/float(_points_to_next_x)*100
-		print("_current_points: ", _current_points,"_result_reward: ", result_reward,"points_to_next: ", _points_to_next_x,)
-		print(float(_current_points)/float(_points_to_next_x)*100)
 	else:
 		_current_points = 0
 		_points_to_next_x = 100

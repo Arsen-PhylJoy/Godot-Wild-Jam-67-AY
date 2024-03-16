@@ -45,7 +45,6 @@ func generate_random_position_on_rectangle(size : Vector2)->Vector2:
 	var spawn_pos_1:Vector2 = Vector2.ZERO
 	var spawn_pos_2:Vector2 = Vector2.ZERO
 	var spawn_point: Vector2 = Vector2(-10000.0,-10000.0)
-	print((allow_spawn_area.get_child(0) as CollisionShape2D).shape.get_rect().has_point(spawn_point))
 	while (!(allow_spawn_area.get_child(0) as CollisionShape2D).shape.get_rect().has_point(spawn_point)):
 		var pos_side: int = [0,1,2,3].pick_random()
 		match pos_side:

@@ -6,7 +6,6 @@ signal rewarded(reward: int)
 @export var export_speed: float = 100.0
 @export var big_reward: int = 25
 @export var small_reward: int = 10
-@export var _destruction_animation: AnimationPlayer
 @export var _self: CharacterBody2D
 @export var _silliness_sprite: Sprite2D
 @export var _enemy_sprite: Sprite2D 
@@ -42,6 +41,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = Vector2.ZERO
 	var collide_data: KinematicCollision2D = move_and_collide(velocity*delta)
+	move_and_slide()
 	if(collide_data != null and collide_data.get_collider() is Player):
 		var player_peculiarities: RPeculiarities = (collide_data.get_collider() as Player).peculiarities
 		if(peculiarities.color == player_peculiarities.color and peculiarities.silliness_texture == player_peculiarities.silliness_texture):
@@ -55,7 +55,6 @@ func _physics_process(delta: float) -> void:
 			(collide_data.get_collider() as Player)._health-=(25.0*_damage_multiplier)
 			rewarded.emit(0)
 			destroy_self()
-	move_and_slide()
 
 func destroy_self()->void:
 	(self as CharacterBody2D).process_mode = Node.PROCESS_MODE_DISABLED
