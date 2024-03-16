@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b27oba0ljoq66"]
+[gd_scene load_steps=8 format=3 uid="uid://b27oba0ljoq66"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_end08"]
 [ext_resource type="Texture2D" uid="uid://b2kv4iq82ytrr" path="res://assets/graphic/enemies/enemy_3.png" id="2_jwukt"]
 [ext_resource type="Texture2D" uid="uid://b47ktmt2r6icf" path="res://assets/graphic/enemies/enemy_3_eye.png" id="3_dmsvh"]
+[ext_resource type="Texture2D" uid="uid://fi7q1rsaa263" path="res://assets/graphic/sillinesses/silly_2.png" id="4_nrfo1"]
+[ext_resource type="Texture2D" uid="uid://bhahv5gjk1puq" path="res://assets/graphic/sillinesses/silly_1.png" id="5_i1vuc"]
+[ext_resource type="Texture2D" uid="uid://don8hjugbqdbs" path="res://assets/graphic/sillinesses/silly_3.png" id="6_r77jx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ae30e"]
 radius = 19.0
 height = 95.0
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("_self", "_silliness_sprite", "_enemy_sprite")]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("_self", "_silliness_sprite", "_enemy_sprite", "_silliness_sprite_hat", "_silliness_sprite_eyes", "_silliness_sprite_moustache")]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_end08")
@@ -16,6 +19,9 @@ export_speed = 125.0
 _self = NodePath(".")
 _silliness_sprite = NodePath("Silliness")
 _enemy_sprite = NodePath("EnemySprite2D")
+_silliness_sprite_hat = NodePath("SillyHat")
+_silliness_sprite_eyes = NodePath("SillyEyes")
+_silliness_sprite_moustache = NodePath("SillyMoustache")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ae30e")
@@ -34,3 +40,22 @@ texture = ExtResource("3_dmsvh")
 unique_name_in_owner = true
 position = Vector2(1, -57)
 scale = Vector2(0.25, 0.25)
+
+[node name="SillyEyes" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -31)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_nrfo1")
+
+[node name="SillyHat" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3, -58)
+rotation = 0.0739979
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_i1vuc")
+
+[node name="SillyMoustache" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -20)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("6_r77jx")

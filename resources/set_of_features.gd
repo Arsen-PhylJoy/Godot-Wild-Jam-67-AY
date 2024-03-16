@@ -2,9 +2,9 @@ class_name RPeculiarities
 extends Resource
 
 enum EColor {RED, BLUE, GREEN}
-const PEC1: CompressedTexture2D = preload("res://assets/graphic/not_release_assets/sillinesses/debug_pec_1.png")
-const PEC2: CompressedTexture2D = preload("res://assets/graphic/not_release_assets/sillinesses/debug_pec_2.png")
-const PEC3: CompressedTexture2D = preload("res://assets/graphic/not_release_assets/sillinesses/debug_pec_3.png")
+const PEC1: CompressedTexture2D = preload("res://assets/graphic/sillinesses/silly_1.png")
+const PEC2: CompressedTexture2D = preload("res://assets/graphic/sillinesses/silly_2.png")
+const PEC3: CompressedTexture2D = preload("res://assets/graphic/sillinesses/silly_3.png")
 
 @export var color: EColor:
 	set(value):

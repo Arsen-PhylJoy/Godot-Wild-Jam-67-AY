@@ -7,7 +7,9 @@ signal health_changed(max_health: float,current_health:float)
 @export var export_speed: float = 150.0
 @export var export_health: float = 100.0
 
-@onready var _silliness_sprite: Sprite2D = %Silliness
+@onready var _silliness_sprite_hat: Sprite2D = %SillyHat
+@onready var _silliness_sprite_eyes: Sprite2D = %SillyEyes
+@onready var _silliness_sprite_moustache: Sprite2D = %SillyMoustache
 @onready var _player_sprite: Sprite2D = %PlayerSprite
 @onready var _anim_player: AnimationPlayer = %AnimationPlayer
 @onready var _speed: float = export_speed
@@ -29,7 +31,7 @@ func _ready() -> void:
 	peculiarities.color = peculiarities.EColor.BLUE
 	_player_sprite.modulate = Color(0.459, 0.482, 1)
 	peculiarities.silliness_texture = peculiarities.PEC1
-	_silliness_sprite.texture = peculiarities.silliness_texture
+	_silliness_sprite_hat.visible = true
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("change_color"):
@@ -42,7 +44,18 @@ func _process(_delta: float) -> void:
 			_player_sprite.modulate = Color(0.459, 1, 0.482)
 	if Input.is_action_just_pressed("change_silliness"):
 		peculiarities.next_silliness()
-		_silliness_sprite.texture = peculiarities.silliness_texture
+		if(peculiarities.silliness_texture == peculiarities.PEC1):
+			_silliness_sprite_hat.visible = true
+			_silliness_sprite_eyes.visible = false
+			_silliness_sprite_moustache.visible = false
+		if(peculiarities.silliness_texture == peculiarities.PEC2):
+			_silliness_sprite_hat.visible = false
+			_silliness_sprite_eyes.visible = true
+			_silliness_sprite_moustache.visible = false
+		if(peculiarities.silliness_texture == peculiarities.PEC3):
+			_silliness_sprite_hat.visible = false
+			_silliness_sprite_eyes.visible = false
+			_silliness_sprite_moustache.visible = true
 
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.ZERO

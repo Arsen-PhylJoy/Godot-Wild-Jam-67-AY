@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bycmbjkvio3uj"]
+[gd_scene load_steps=14 format=3 uid="uid://bycmbjkvio3uj"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_pbwq4"]
 [ext_resource type="Texture2D" uid="uid://c47mukvoqk0tf" path="res://assets/graphic/parasite/parasit_0.png" id="2_0qmq7"]
 [ext_resource type="Texture2D" uid="uid://bkii88jvg8ngd" path="res://assets/graphic/parasite/parasit_eye.png" id="3_pk2nl"]
 [ext_resource type="Script" path="res://scenes/player/player_ui.gd" id="3_si45y"]
+[ext_resource type="Texture2D" uid="uid://bhahv5gjk1puq" path="res://assets/graphic/sillinesses/silly_1.png" id="4_nt86d"]
 [ext_resource type="Texture2D" uid="uid://rnnwdcugup6d" path="res://assets/graphic/not_release_assets/ui/bgload.png" id="4_ssveq"]
+[ext_resource type="Texture2D" uid="uid://fi7q1rsaa263" path="res://assets/graphic/sillinesses/silly_2.png" id="5_fhq6t"]
 [ext_resource type="Texture2D" uid="uid://b7vari54l8do0" path="res://assets/graphic/not_release_assets/ui/load.png" id="5_wfk6j"]
+[ext_resource type="Texture2D" uid="uid://don8hjugbqdbs" path="res://assets/graphic/sillinesses/silly_3.png" id="6_fh2up"]
 
 [sub_resource type="Animation" id="Animation_sc5k5"]
 length = 0.001
@@ -20,6 +23,42 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SillyHat:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-11, -23.75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SillyEyes:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16.25, -15.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SillyMoustache:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16.75, -11.25)]
 }
 
 [sub_resource type="Animation" id="Animation_ousdr"]
@@ -86,6 +125,78 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(-15.75, -12)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SillyHat:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10.25, -22.5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SillyEyes:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16.25, -15.5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SillyMoustache:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16.75, -11.25)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SillyHat:flip_h")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SillyEyes:flip_h")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SillyMoustache:flip_h")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_m050r"]
 resource_name = "movement_right"
@@ -151,6 +262,78 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(16.5, -11.5)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SillyHat:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13.75, -23.5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SillyEyes:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16.25, -15.25)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SillyMoustache:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16.5, -11)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SillyHat:flip_h")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SillyEyes:flip_h")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SillyMoustache:flip_h")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_is25y"]
 _data = {
@@ -186,10 +369,27 @@ position = Vector2(-15.75, -12)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_pk2nl")
 
-[node name="Silliness" type="Sprite2D" parent="."]
+[node name="SillyEyes" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -11.25)
-scale = Vector2(0.05, 0.05)
+visible = false
+position = Vector2(-16.25, -15.5)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("5_fhq6t")
+
+[node name="SillyHat" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-11, -23.75)
+rotation = 0.0736464
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("4_nt86d")
+
+[node name="SillyMoustache" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-16.75, -11.25)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("6_fh2up")
 
 [node name="PlayerUI" type="CanvasLayer" parent="."]
 visible = false

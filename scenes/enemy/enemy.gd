@@ -9,14 +9,19 @@ signal rewarded(reward: int)
 @export var _self: CharacterBody2D
 @export var _silliness_sprite: Sprite2D
 @export var _enemy_sprite: Sprite2D 
+@export var _silliness_sprite_hat: Sprite2D
+@export var _silliness_sprite_eyes: Sprite2D 
+@export var _silliness_sprite_moustache: Sprite2D
+
+
+#divide by two because we are using both move_and_collide to return data about collision and move_and_slide to slide
+@onready var _speed: float = export_speed/2
 
 var _damage_multiplier: float = 1.0
 
 var peculiarities: RPeculiarities = RPeculiarities.new()
 
 var _player_ref: Player
-#divide by two because we are using both move_and_collide to return data about collision and move_and_slide to slide
-var _speed: float = export_speed/2
 
 
 func _ready() -> void:
@@ -30,7 +35,18 @@ func _ready() -> void:
 		_enemy_sprite.modulate = Color.BLUE
 	elif(peculiarities.color == peculiarities.EColor.GREEN):
 		_enemy_sprite.modulate = Color.GREEN
-	_silliness_sprite.texture = peculiarities.silliness_texture
+	if(peculiarities.silliness_texture == peculiarities.PEC1):
+		_silliness_sprite_hat.visible = true
+		_silliness_sprite_eyes.visible = false
+		_silliness_sprite_moustache.visible = false
+	if(peculiarities.silliness_texture == peculiarities.PEC2):
+		_silliness_sprite_hat.visible = false
+		_silliness_sprite_eyes.visible = true
+		_silliness_sprite_moustache.visible = false
+	if(peculiarities.silliness_texture == peculiarities.PEC3):
+		_silliness_sprite_hat.visible = false
+		_silliness_sprite_eyes.visible = false
+		_silliness_sprite_moustache.visible = true
 	var mult: float =  randf_range(1.0,1.3)
 	(self as CharacterBody2D).scale = Vector2(mult,mult)
 	_damage_multiplier = mult
