@@ -44,3 +44,54 @@ unique_name_in_owner = true
 
 [node name="ComboLabels" parent="." instance=ExtResource("6_yc3l0")]
 unique_name_in_owner = true
+
+[node name="FoodSpawners" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Marker2D" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(-924, -949)
+
+[node name="Marker2D2" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(-335, -805)
+
+[node name="Marker2D3" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(-958, -458)
+
+[node name="Marker2D4" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(-509, -176)
+
+[node name="Marker2D5" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(-913, 371)
+
+[node name="Marker2D6" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(-465, 666)
+
+[node name="Marker2D7" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(-907, 986)
+
+[node name="Marker2D8" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(534, 550)
+
+[node name="Marker2D9" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(-18, 1133)
+
+[node name="Marker2D10" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(312, -1115)
+
+[node name="Marker2D11" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(648, -787)
+
+[node name="Marker2D12" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(343, -508)
+
+[node name="Marker2D13" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(1003, -451)
+
+[node name="Marker2D14" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(1137, 495)
+
+[node name="Marker2D15" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(1041, 1054)
+
+[node name="Marker2D16" type="Marker2D" parent="FoodSpawners"]
+position = Vector2(83, 597)

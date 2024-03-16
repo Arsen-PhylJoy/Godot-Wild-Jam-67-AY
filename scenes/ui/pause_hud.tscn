@@ -4,8 +4,8 @@
 [ext_resource type="Theme" uid="uid://y2a6okj5k8kv" path="res://resources/ui.tres" id="2_40fco"]
 [ext_resource type="PackedScene" uid="uid://b2ncqtse6eo6a" path="res://scenes/ui/sound_settings.tscn" id="3_nphsk"]
 [ext_resource type="Shader" path="res://shaders/blur.gdshader" id="3_utg6c"]
-[ext_resource type="Texture2D" uid="uid://dbx7ppg1yacd3" path="res://button_hover.png" id="4_u3tr1"]
-[ext_resource type="Texture2D" uid="uid://dt0j0r77ogvi" path="res://button_normal.png" id="5_4bjx5"]
+[ext_resource type="Texture2D" uid="uid://dbx7ppg1yacd3" path="res://assets/graphic/ui/button_hover.png" id="4_u3tr1"]
+[ext_resource type="Texture2D" uid="uid://dt0j0r77ogvi" path="res://assets/graphic/ui/button_normal.png" id="5_4bjx5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xyeen"]
 shader = ExtResource("3_utg6c")

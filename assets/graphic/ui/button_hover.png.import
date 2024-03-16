@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c47mukvoqk0tf"
-path="res://.godot/imported/parasit_0.png-6cf28bfc0fae2a97062e552409146f6a.ctex"
+uid="uid://dbx7ppg1yacd3"
+path="res://.godot/imported/button_hover.png-e3838ade0b3bfe29539c93ba99d3add7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://parasit_0.png"
-dest_files=["res://.godot/imported/parasit_0.png-6cf28bfc0fae2a97062e552409146f6a.ctex"]
+source_file="res://assets/graphic/ui/button_hover.png"
+dest_files=["res://.godot/imported/button_hover.png-e3838ade0b3bfe29539c93ba99d3add7.ctex"]
 
 [params]
 

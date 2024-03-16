@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhahv5gjk1puq"
-path="res://.godot/imported/silly_1.png-5a5d6153053f4def13a72da4ae7fb64c.ctex"
+uid="uid://bh7xyfx8mvwkx"
+path="res://.godot/imported/heal.png-5184b660fa2bc9e9ab891ecfab8f975e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://silly_1.png"
-dest_files=["res://.godot/imported/silly_1.png-5a5d6153053f4def13a72da4ae7fb64c.ctex"]
+source_file="res://assets/graphic/items/heal.png"
+dest_files=["res://.godot/imported/heal.png-5184b660fa2bc9e9ab891ecfab8f975e.ctex"]
 
 [params]
 

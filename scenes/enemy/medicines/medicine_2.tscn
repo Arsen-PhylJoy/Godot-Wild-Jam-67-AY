@@ -8,6 +8,8 @@
 radius = 44.0
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("_self", "_silliness_sprite", "_enemy_sprite")]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_ep4on")
 _self = NodePath(".")
 _silliness_sprite = NodePath("Silliness")

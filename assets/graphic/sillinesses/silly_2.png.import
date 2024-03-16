@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fi7q1rsaa263"
-path="res://.godot/imported/silly_2.png-fcb994c9e6e519fa0e4ca55510616b49.ctex"
+path="res://.godot/imported/silly_2.png-05f67bf3a40b916629e02fbe4444c44d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://silly_2.png"
-dest_files=["res://.godot/imported/silly_2.png-fcb994c9e6e519fa0e4ca55510616b49.ctex"]
+source_file="res://assets/graphic/sillinesses/silly_2.png"
+dest_files=["res://.godot/imported/silly_2.png-05f67bf3a40b916629e02fbe4444c44d.ctex"]
 
 [params]
 

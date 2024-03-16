@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkii88jvg8ngd"
-path="res://.godot/imported/parasit_eye.png-be478844456cc33eeddf4aacda64c5b3.ctex"
+uid="uid://dt0j0r77ogvi"
+path="res://.godot/imported/button_normal.png-4bd119f35458d1c1adb894aea418e565.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://parasit_eye.png"
-dest_files=["res://.godot/imported/parasit_eye.png-be478844456cc33eeddf4aacda64c5b3.ctex"]
+source_file="res://assets/graphic/ui/button_normal.png"
+dest_files=["res://.godot/imported/button_normal.png-4bd119f35458d1c1adb894aea418e565.ctex"]
 
 [params]
 

@@ -9,6 +9,8 @@ radius = 31.95
 height = 94.1
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("_self", "_silliness_sprite", "_enemy_sprite")]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_f0ca6")
 export_speed = 60.0
 _self = NodePath(".")
