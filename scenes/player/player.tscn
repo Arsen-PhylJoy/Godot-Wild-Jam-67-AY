@@ -566,7 +566,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.52869
+frame_progress = 0.897162
 
 [node name="Parasit1" type="AnimatedSprite2D" parent="SmallParasites"]
 visible = false
@@ -575,7 +575,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.344464
+frame_progress = 0.712936
 
 [node name="Parasit2" type="AnimatedSprite2D" parent="SmallParasites"]
 visible = false
@@ -584,7 +584,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.685366
+frame_progress = 0.053838
 
 [node name="Parasit3" type="AnimatedSprite2D" parent="SmallParasites"]
 visible = false
@@ -593,7 +593,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.885359
+frame_progress = 0.253832
 
 [node name="Parasit4" type="AnimatedSprite2D" parent="SmallParasites"]
 visible = false
@@ -602,7 +602,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.765878
+frame_progress = 0.13435
 
 [node name="Parasit5" type="AnimatedSprite2D" parent="SmallParasites"]
 visible = false
@@ -611,7 +611,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.67233
+frame_progress = 0.0408024
 
 [node name="Parasit6" type="AnimatedSprite2D" parent="SmallParasites"]
 visible = false
@@ -620,7 +620,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.249057
+frame_progress = 0.617529
 
 [node name="Parasit7" type="AnimatedSprite2D" parent="SmallParasites"]
 visible = false
@@ -629,4 +629,4 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.848521
+frame_progress = 0.216993
