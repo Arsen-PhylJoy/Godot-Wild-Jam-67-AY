@@ -7,7 +7,6 @@ signal rewarded(reward: int)
 @export var big_reward: int = 25
 @export var small_reward: int = 10
 @export var _self: CharacterBody2D
-@export var _silliness_sprite: Sprite2D
 @export var _enemy_sprite: Sprite2D 
 @export var _silliness_sprite_hat: Sprite2D
 @export var _silliness_sprite_eyes: Sprite2D 
@@ -35,15 +34,15 @@ func _ready() -> void:
 		_enemy_sprite.modulate = Color.BLUE
 	elif(peculiarities.color == peculiarities.EColor.GREEN):
 		_enemy_sprite.modulate = Color.GREEN
-	if(peculiarities.silliness_texture == peculiarities.PEC1):
+	if(peculiarities.silliness == peculiarities.ESilliness.HAT):
 		_silliness_sprite_hat.visible = true
 		_silliness_sprite_eyes.visible = false
 		_silliness_sprite_moustache.visible = false
-	if(peculiarities.silliness_texture == peculiarities.PEC2):
+	if(peculiarities.silliness == peculiarities.ESilliness.EYES):
 		_silliness_sprite_hat.visible = false
 		_silliness_sprite_eyes.visible = true
 		_silliness_sprite_moustache.visible = false
-	if(peculiarities.silliness_texture == peculiarities.PEC3):
+	if(peculiarities.silliness == peculiarities.ESilliness.MOUSTACHE):
 		_silliness_sprite_hat.visible = false
 		_silliness_sprite_eyes.visible = false
 		_silliness_sprite_moustache.visible = true
@@ -60,11 +59,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if(collide_data != null and collide_data.get_collider() is Player):
 		var player_peculiarities: RPeculiarities = (collide_data.get_collider() as Player).peculiarities
-		if(peculiarities.color == player_peculiarities.color and peculiarities.silliness_texture == player_peculiarities.silliness_texture):
+		if((collide_data.get_collider() as Player)._is_invulnerable):
+			rewarded.emit(big_reward * _damage_multiplier)
+			destroy_self()			
+		elif(peculiarities.color == player_peculiarities.color and peculiarities.silliness == player_peculiarities.silliness):
+			(collide_data.get_collider() as Player).ability_charge+=15
 			rewarded.emit(big_reward * _damage_multiplier)
 			destroy_self()
-		elif(peculiarities.color == player_peculiarities.color or peculiarities.silliness_texture == player_peculiarities.silliness_texture):
+		elif(peculiarities.color == player_peculiarities.color or peculiarities.silliness == player_peculiarities.silliness):
 			(collide_data.get_collider() as Player).execute_slow_penalty()
+			(collide_data.get_collider() as Player).ability_charge+=5
 			rewarded.emit(small_reward * _damage_multiplier)
 			destroy_self()
 		else:
@@ -73,7 +77,4 @@ func _physics_process(delta: float) -> void:
 			destroy_self()
 
 func destroy_self()->void:
-	(self as CharacterBody2D).process_mode = Node.PROCESS_MODE_DISABLED
-#	_destruction_animation.play("destruction")
-#	await _destruction_animation.animation_finished
 	queue_free()

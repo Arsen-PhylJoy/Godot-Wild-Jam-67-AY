@@ -2,21 +2,19 @@ class_name RPeculiarities
 extends Resource
 
 enum EColor {RED, BLUE, GREEN}
-const PEC1: CompressedTexture2D = preload("res://assets/graphic/sillinesses/silly_1.png")
-const PEC2: CompressedTexture2D = preload("res://assets/graphic/sillinesses/silly_2.png")
-const PEC3: CompressedTexture2D = preload("res://assets/graphic/sillinesses/silly_3.png")
+enum ESilliness {HAT,EYES,MOUSTACHE}
 
 @export var color: EColor:
 	set(value):
 		color = value
 	get:
 		return color
-@export var silliness_texture: CompressedTexture2D:
+@export var silliness: ESilliness:
 	set(value):
-		if(value == PEC1 or value == PEC2 or value == PEC3):
-			silliness_texture = value 
+		if(value == ESilliness.HAT or value == ESilliness.EYES or value == ESilliness.MOUSTACHE):
+			silliness = value 
 	get:
-		return silliness_texture
+		return silliness
 
 func next_color()->void:
 	if(color == EColor.RED):
@@ -27,15 +25,15 @@ func next_color()->void:
 		color = EColor.RED
 	
 func next_silliness()->void:
-	if(silliness_texture == PEC1):
-		silliness_texture = PEC2
-	elif(silliness_texture == PEC2):
-		silliness_texture = PEC3
-	elif(silliness_texture == PEC3):
-		silliness_texture = PEC1
+	if(silliness == ESilliness.HAT):
+		silliness = ESilliness.EYES
+	elif(silliness == ESilliness.EYES):
+		silliness = ESilliness.MOUSTACHE
+	elif(silliness == ESilliness.MOUSTACHE):
+		silliness = ESilliness.HAT
 
 func randomize_peculiarities()->void:
 	var color_array: Array[EColor] = [EColor.RED,EColor.BLUE,EColor.GREEN]
-	var pec_array: Array[CompressedTexture2D] = [PEC1,PEC2,PEC3]
+	var pec_array: Array[ESilliness] = [ESilliness.HAT, ESilliness.EYES, ESilliness.MOUSTACHE]
 	color =  color_array.pick_random()
-	silliness_texture = pec_array.pick_random()
+	silliness = pec_array.pick_random()

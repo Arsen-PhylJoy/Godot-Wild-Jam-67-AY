@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8qslgs61dx58"]
+
+[ext_resource type="Script" path="res://scenes/ui/learning_window.gd" id="1_huq4s"]
+
+[node name="LearningWindow" type="CanvasLayer"]
+script = ExtResource("1_huq4s")

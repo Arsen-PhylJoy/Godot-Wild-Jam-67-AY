@@ -11,13 +11,12 @@
 radius = 19.0
 height = 95.0
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("_self", "_silliness_sprite", "_enemy_sprite", "_silliness_sprite_hat", "_silliness_sprite_eyes", "_silliness_sprite_moustache")]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("_self", "_enemy_sprite", "_silliness_sprite_hat", "_silliness_sprite_eyes", "_silliness_sprite_moustache")]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_end08")
 export_speed = 125.0
 _self = NodePath(".")
-_silliness_sprite = NodePath("Silliness")
 _enemy_sprite = NodePath("EnemySprite2D")
 _silliness_sprite_hat = NodePath("SillyHat")
 _silliness_sprite_eyes = NodePath("SillyEyes")

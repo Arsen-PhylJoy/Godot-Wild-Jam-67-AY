@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bycmbjkvio3uj"]
+[gd_scene load_steps=19 format=3 uid="uid://bycmbjkvio3uj"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_pbwq4"]
 [ext_resource type="Texture2D" uid="uid://c47mukvoqk0tf" path="res://assets/graphic/parasite/parasit_0.png" id="2_0qmq7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://fi7q1rsaa263" path="res://assets/graphic/sillinesses/silly_2.png" id="5_fhq6t"]
 [ext_resource type="Texture2D" uid="uid://b7vari54l8do0" path="res://assets/graphic/not_release_assets/ui/load.png" id="5_wfk6j"]
 [ext_resource type="Texture2D" uid="uid://don8hjugbqdbs" path="res://assets/graphic/sillinesses/silly_3.png" id="6_fh2up"]
+[ext_resource type="Theme" uid="uid://y2a6okj5k8kv" path="res://resources/ui.tres" id="10_q4wt6"]
 
 [sub_resource type="Animation" id="Animation_sc5k5"]
 length = 0.001
@@ -342,6 +343,60 @@ _data = {
 "movement_right": SubResource("Animation_m050r")
 }
 
+[sub_resource type="Animation" id="Animation_n3tky"]
+resource_name = "fading_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerUI/Ability:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [100.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_uli3s"]
+resource_name = "ready"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerUI/Ability/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.102632, 0.200598, 0.298565, 0.401196, 0.508493, 0.606459, 0.699761, 0.802392, 0.900359, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-8, 2), Vector2(-6, -2), Vector2(-26, 22), Vector2(-7, 22), Vector2(-22, 1), Vector2(-4, 5), Vector2(-7.15256e-07, 22), Vector2(-27, -3), Vector2(-13, 10), Vector2(-7, 8), Vector2(-14, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_7r54q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerUI/Ability/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4w1e8"]
+_data = {
+"RESET": SubResource("Animation_7r54q"),
+"fading_out": SubResource("Animation_n3tky"),
+"ready": SubResource("Animation_uli3s")
+}
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 collision_mask = 7
@@ -357,7 +412,6 @@ disabled = true
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-modulate = Color(0.458824, 0.482353, 1, 1)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_0qmq7")
 hframes = 3
@@ -408,8 +462,43 @@ texture_under = ExtResource("4_ssveq")
 texture_progress = ExtResource("5_wfk6j")
 texture_progress_offset = Vector2(8.515, 3.655)
 
+[node name="Ability" type="TextureProgressBar" parent="PlayerUI"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -940.0
+offset_top = 483.0
+offset_right = -556.0
+offset_bottom = 526.0
+grow_horizontal = 2
+rotation = -1.5708
+value = 100.0
+texture_under = ExtResource("4_ssveq")
+texture_progress = ExtResource("5_wfk6j")
+texture_progress_offset = Vector2(8.515, 3.655)
+
+[node name="Label" type="Label" parent="PlayerUI/Ability"]
+layout_mode = 1
+offset_left = -4.0
+offset_top = -5.0
+offset_right = 26.0
+offset_bottom = 56.0
+rotation = 1.5708
+pivot_offset = Vector2(-4.51, 3.595)
+size_flags_horizontal = 4
+theme = ExtResource("10_q4wt6")
+theme_override_font_sizes/font_size = 60
+text = "E"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_is25y")
+}
+
+[node name="AbilityAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_4w1e8")
 }

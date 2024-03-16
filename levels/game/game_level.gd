@@ -16,7 +16,7 @@ var _next_limit: int = limits[1]:
 	set(value):
 		next_limit_changed.emit(value)
 		_next_limit = value
-var _index_of_current_limit: int = 0
+var _index_of_current_limit: int = 1
 var food_ps: PackedScene = preload("res://scenes/items/food.tscn")
 
 func _ready() -> void:
@@ -29,9 +29,9 @@ func _ready() -> void:
 			food.global_position =  i.global_position
 
 func _update_current_points(_value: int)->void:
-	if(_index_of_current_limit+1 > limits.size() and Score.score >= _current_limit ):
+	if(_index_of_current_limit+2 > limits.size() and Score.score >= _current_limit ):
 		LevelManager.load_level("res://levels/game/main_menu.tscn")
-	elif(_index_of_current_limit+2 > limits.size() and Score.score >= _current_limit ):
+	elif(_index_of_current_limit+3 > limits.size() and Score.score >= _current_limit ):
 		_current_limit = limits[_index_of_current_limit+1]
 		_next_limit = 0
 		_score_ui.set_limits(_current_limit,_next_limit)
