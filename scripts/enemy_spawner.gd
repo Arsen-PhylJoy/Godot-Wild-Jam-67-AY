@@ -34,6 +34,7 @@ func _spawm_enemies()->void:
 	for i: int in 5:
 		var enemy: Enemy = (enemies_ps.pick_random() as PackedScene).instantiate() as Enemy
 		$".".add_child(enemy)
+		enemy.rewarded.connect((%ComboLabels as ComboSys)._calculate)
 		enemy.global_position = generate_random_position_on_rectangle(get_window().size * randf_range(1.1,1.3))
 
 func generate_random_position_on_rectangle(size : Vector2)->Vector2:

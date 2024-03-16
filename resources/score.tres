@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c8iib546soa0y"]
+
+[ext_resource type="FontFile" uid="uid://m1nwjlgauqxk" path="res://fonts/frisky_puppy/frisky_puppy.ttf" id="1_ewogg"]
+
+[resource]
+Label/font_sizes/font_size = 54
+Label/fonts/font = ExtResource("1_ewogg")

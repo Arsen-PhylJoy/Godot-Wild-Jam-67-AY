@@ -1,4 +1,9 @@
-[gd_resource type="Theme" format=3 uid="uid://y2a6okj5k8kv"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://y2a6okj5k8kv"]
+
+[ext_resource type="FontFile" uid="uid://m1nwjlgauqxk" path="res://fonts/frisky_puppy/frisky_puppy.ttf" id="1_xfy6r"]
 
 [resource]
 Button/font_sizes/font_size = 46
+Button/fonts/font = ExtResource("1_xfy6r")
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_xfy6r")
