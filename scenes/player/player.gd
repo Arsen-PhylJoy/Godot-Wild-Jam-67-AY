@@ -83,16 +83,23 @@ func _physics_process(delta: float) -> void:
 		velocity.y=1
 	if Input.is_action_pressed("Move_Left"):
 		_anim_player.play("movement_left")
+		flip_parasites(false)
 		velocity.x-=1
 	if Input.is_action_pressed("Move_Right"):
 		_anim_player.play("movement_right")
+		flip_parasites(true)
 		velocity.x=1
 	if (velocity == Vector2.ZERO):
 		_anim_player.stop()
+		run_parasites(false)
+	else:
+		run_parasites(true)
 	@warning_ignore("unused_variable")
 	var collide_data: KinematicCollision2D = move_and_collide(velocity.normalized()*_speed*delta)
 	
 func execute_slow_penalty()->void:
+	if(_is_invulnerable):
+		return
 	_has_slow_penalty = true
 	_speed/=2
 	await get_tree().create_timer(2.0).timeout
@@ -129,3 +136,30 @@ func use_ability()->void:
 		_player_sprite.modulate = Color(0.459, 0.482, 1)
 	elif(peculiarities.color == peculiarities.EColor.GREEN):
 		_player_sprite.modulate = Color(0.459, 1, 0.482)
+
+
+#These functions for parasites
+func show_parasite()->void:
+	export_speed+=12.5
+	_speed+=12.5
+	(%AnimationPlayerSpeedUP as AnimationPlayer).play("show_speed_up_label")
+	for i: AnimatedSprite2D in %SmallParasites.get_children():
+		if(i.visible == false):
+			i.visible = true
+			break
+
+func flip_parasites(to_right: bool)->void:
+	for i: AnimatedSprite2D in %SmallParasites.get_children():
+		if(to_right == false):
+			i.flip_h = false
+		elif(to_right == true):
+			i.flip_h = true
+
+func run_parasites(do_run:bool)->void:
+	for i: AnimatedSprite2D in %SmallParasites.get_children():
+		if(do_run):
+			i.play("Move")
+		else:
+			i.stop()
+			
+#End functions for parasites

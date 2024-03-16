@@ -3,10 +3,11 @@ extends Node
 signal current_limit_changed(value:int)
 signal next_limit_changed(value:int)
 
-@export var limits: Array[int] = [200,400,800,1600,3200,6400,10000]
+@export var limits: Array[int] = [150,300,600,1200,1600,3200,6400,10000]
 
 @onready var _score_ui: ScoreUI = %ScoreUI
 @onready var food_spawners_collection: Node = %FoodSpawners
+@onready var _player_ref: Player = %Player
 
 var _current_limit : int = limits[0]:
 	set(value):
@@ -37,10 +38,12 @@ func _update_current_points(_value: int)->void:
 		_score_ui.set_limits(_current_limit,_next_limit)
 		_index_of_current_limit+=1
 		Score.score = 0
+		_player_ref.show_parasite()
 	elif( Score.score >= _current_limit):
 		_current_limit = limits[_index_of_current_limit+1]
 		_next_limit = limits[_index_of_current_limit+2]
 		_score_ui.set_limits(_current_limit,_next_limit)
 		_index_of_current_limit+=1
 		Score.score = 0
+		_player_ref.show_parasite()
 		

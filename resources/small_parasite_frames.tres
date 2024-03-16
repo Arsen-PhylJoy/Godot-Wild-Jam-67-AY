@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://b3v2s3iw071xh"]
+
+[ext_resource type="Texture2D" uid="uid://c47mukvoqk0tf" path="res://assets/graphic/parasite/parasit_0.png" id="1_5s52m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5sdh"]
+atlas = ExtResource("1_5s52m")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu4ft"]
+atlas = ExtResource("1_5s52m")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kelg5"]
+atlas = ExtResource("1_5s52m")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4h4r"]
+atlas = ExtResource("1_5s52m")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u37q7"]
+atlas = ExtResource("1_5s52m")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypo1s"]
+atlas = ExtResource("1_5s52m")
+region = Rect2(1024, 512, 512, 512)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5sdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu4ft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kelg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4h4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u37q7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypo1s")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 12.0
+}]

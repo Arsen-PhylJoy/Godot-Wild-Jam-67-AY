@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bycmbjkvio3uj"]
+[gd_scene load_steps=26 format=3 uid="uid://bycmbjkvio3uj"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_pbwq4"]
 [ext_resource type="Texture2D" uid="uid://c47mukvoqk0tf" path="res://assets/graphic/parasite/parasit_0.png" id="2_0qmq7"]
@@ -9,7 +9,41 @@
 [ext_resource type="Texture2D" uid="uid://fi7q1rsaa263" path="res://assets/graphic/sillinesses/silly_2.png" id="5_fhq6t"]
 [ext_resource type="Texture2D" uid="uid://b7vari54l8do0" path="res://assets/graphic/not_release_assets/ui/load.png" id="5_wfk6j"]
 [ext_resource type="Texture2D" uid="uid://don8hjugbqdbs" path="res://assets/graphic/sillinesses/silly_3.png" id="6_fh2up"]
+[ext_resource type="Shader" path="res://shaders/gradient.gdshader" id="8_yb3qv"]
+[ext_resource type="Texture2D" uid="uid://xaikviiy27mj" path="res://resources/gradients/reward_label_gradient.tres" id="9_o2eir"]
 [ext_resource type="Theme" uid="uid://y2a6okj5k8kv" path="res://resources/ui.tres" id="10_q4wt6"]
+[ext_resource type="SpriteFrames" uid="uid://b3v2s3iw071xh" path="res://resources/small_parasite_frames.tres" id="11_ll7bm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_slyfq"]
+shader = ExtResource("8_yb3qv")
+shader_parameter/gradient_mix_amount = 1.0
+shader_parameter/gradient = ExtResource("9_o2eir")
+
+[sub_resource type="Animation" id="Animation_mxgn2"]
+resource_name = "RESET"
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_x1xkx"]
+resource_name = "show_speed_up_label"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpeedUPPopup:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.52, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2xxa"]
+_data = {
+"RESET": SubResource("Animation_mxgn2"),
+"show_speed_up_label": SubResource("Animation_x1xkx")
+}
 
 [sub_resource type="Animation" id="Animation_sc5k5"]
 length = 0.001
@@ -365,7 +399,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerUI/Ability/Label:position")
+tracks/0/path = NodePath("PlayerUI/Ability/AbilityUseLabel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -380,7 +414,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerUI/Ability/Label:position")
+tracks/0/path = NodePath("PlayerUI/Ability/AbilityUseLabel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -446,8 +480,20 @@ scale = Vector2(0.03, 0.03)
 texture = ExtResource("6_fh2up")
 
 [node name="PlayerUI" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("3_si45y")
+
+[node name="SpeedUPPopup" type="Label" parent="PlayerUI"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_slyfq")
+offset_left = 709.0
+offset_top = 311.0
+offset_right = 1251.0
+offset_bottom = 431.0
+scale = Vector2(0.001, 0.001)
+pivot_offset = Vector2(250, 50)
+theme = ExtResource("10_q4wt6")
+theme_override_font_sizes/font_size = 120
+text = "SPEED UP!!!"
 
 [node name="Health" type="TextureProgressBar" parent="PlayerUI"]
 unique_name_in_owner = true
@@ -478,7 +524,7 @@ texture_under = ExtResource("4_ssveq")
 texture_progress = ExtResource("5_wfk6j")
 texture_progress_offset = Vector2(8.515, 3.655)
 
-[node name="Label" type="Label" parent="PlayerUI/Ability"]
+[node name="AbilityUseLabel" type="Label" parent="PlayerUI/Ability"]
 layout_mode = 1
 offset_left = -4.0
 offset_top = -5.0
@@ -491,6 +537,12 @@ theme = ExtResource("10_q4wt6")
 theme_override_font_sizes/font_size = 60
 text = "E"
 
+[node name="AnimationPlayerSpeedUP" type="AnimationPlayer" parent="PlayerUI"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_i2xxa")
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
@@ -502,3 +554,79 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_4w1e8")
 }
+
+[node name="SmallParasites" type="Node2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+
+[node name="Parasit0" type="AnimatedSprite2D" parent="SmallParasites"]
+visible = false
+position = Vector2(54.5, -50.5)
+scale = Vector2(0.05, 0.05)
+sprite_frames = ExtResource("11_ll7bm")
+animation = &"Move"
+autoplay = "Move"
+frame_progress = 0.52869
+
+[node name="Parasit1" type="AnimatedSprite2D" parent="SmallParasites"]
+visible = false
+position = Vector2(-79, -61.5)
+scale = Vector2(0.05, 0.05)
+sprite_frames = ExtResource("11_ll7bm")
+animation = &"Move"
+autoplay = "Move"
+frame_progress = 0.344464
+
+[node name="Parasit2" type="AnimatedSprite2D" parent="SmallParasites"]
+visible = false
+position = Vector2(-8.5, -76)
+scale = Vector2(0.05, 0.05)
+sprite_frames = ExtResource("11_ll7bm")
+animation = &"Move"
+autoplay = "Move"
+frame_progress = 0.685366
+
+[node name="Parasit3" type="AnimatedSprite2D" parent="SmallParasites"]
+visible = false
+position = Vector2(73, 49)
+scale = Vector2(0.05, 0.05)
+sprite_frames = ExtResource("11_ll7bm")
+animation = &"Move"
+autoplay = "Move"
+frame_progress = 0.885359
+
+[node name="Parasit4" type="AnimatedSprite2D" parent="SmallParasites"]
+visible = false
+position = Vector2(93, -8.5)
+scale = Vector2(0.05, 0.05)
+sprite_frames = ExtResource("11_ll7bm")
+animation = &"Move"
+autoplay = "Move"
+frame_progress = 0.765878
+
+[node name="Parasit5" type="AnimatedSprite2D" parent="SmallParasites"]
+visible = false
+position = Vector2(-64.5, 54)
+scale = Vector2(0.05, 0.05)
+sprite_frames = ExtResource("11_ll7bm")
+animation = &"Move"
+autoplay = "Move"
+frame_progress = 0.67233
+
+[node name="Parasit6" type="AnimatedSprite2D" parent="SmallParasites"]
+visible = false
+position = Vector2(7.5, 62.5)
+scale = Vector2(0.05, 0.05)
+sprite_frames = ExtResource("11_ll7bm")
+animation = &"Move"
+autoplay = "Move"
+frame_progress = 0.249057
+
+[node name="Parasit7" type="AnimatedSprite2D" parent="SmallParasites"]
+visible = false
+position = Vector2(-98, -3.5)
+scale = Vector2(0.05, 0.05)
+sprite_frames = ExtResource("11_ll7bm")
+animation = &"Move"
+autoplay = "Move"
+frame_progress = 0.848521
