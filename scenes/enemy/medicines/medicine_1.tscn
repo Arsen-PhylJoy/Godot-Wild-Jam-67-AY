@@ -1,27 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://ntevg7dg0p6k"]
+[gd_scene load_steps=5 format=3 uid="uid://ntevg7dg0p6k"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_f0ca6"]
 [ext_resource type="Texture2D" uid="uid://is5dhf2cenit" path="res://assets/graphic/enemies/enemy_1.png" id="1_lb1xl"]
-[ext_resource type="Shader" path="res://shaders/destruction.gdshader" id="1_x8tn0"]
 [ext_resource type="Texture2D" uid="uid://dog4oi8dwclxf" path="res://assets/graphic/enemies/enemy_1_eye.png" id="3_85jvd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wl32p"]
 radius = 31.95
 height = 94.1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e8uj0"]
-shader = ExtResource("1_x8tn0")
-shader_parameter/center = Vector2(0.505, 0.5)
-shader_parameter/radius = 3.755
-shader_parameter/zoom = 1.765
-
-[sub_resource type="Gradient" id="Gradient_0jem1"]
-offsets = PackedFloat32Array(0.583587)
-colors = PackedColorArray(0.364706, 0.364706, 0.717647, 0.360784)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_y8sy8"]
-gradient = SubResource("Gradient_0jem1")
-fill_from = Vector2(0, 0.991453)
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("_self", "_silliness_sprite", "_enemy_sprite")]
 script = ExtResource("1_f0ca6")
@@ -48,8 +33,3 @@ texture = ExtResource("3_85jvd")
 unique_name_in_owner = true
 position = Vector2(-1, -48)
 scale = Vector2(0.25, 0.25)
-
-[node name="DestructionShaderEffect" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_e8uj0")
-scale = Vector2(1.33379, 1.36188)
-texture = SubResource("GradientTexture2D_y8sy8")

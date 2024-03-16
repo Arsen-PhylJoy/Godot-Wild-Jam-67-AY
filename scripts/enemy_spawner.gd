@@ -2,7 +2,7 @@ class_name EnemySpawner
 extends Node
 
 @export var player_ref: Player
-@export var allow_spawn_area: Rect2
+@export var allow_spawn_area: Area2D
 
 var enemies_ps: Array[PackedScene] = [  preload("res://scenes/enemy/medicines/medicine_1.tscn"),
 										preload("res://scenes/enemy/medicines/medicine_2.tscn"),
@@ -44,9 +44,9 @@ func generate_random_position_on_rectangle(size : Vector2)->Vector2:
 	var bottom_right: Vector2 = Vector2(player_ref.global_position.x + size.x/2, player_ref.global_position.y + size.y/2)
 	var spawn_pos_1:Vector2 = Vector2.ZERO
 	var spawn_pos_2:Vector2 = Vector2.ZERO
-	var x_spawn: float = -10000.0
-	var y_spawn: float = -10000.0
-	while (!allow_spawn_area.has_point(Vector2(x_spawn,y_spawn))):
+	var spawn_point: Vector2 = Vector2(-10000.0,-10000.0)
+	print((allow_spawn_area.get_child(0) as CollisionShape2D).shape.get_rect().has_point(spawn_point))
+	while (!(allow_spawn_area.get_child(0) as CollisionShape2D).shape.get_rect().has_point(spawn_point)):
 		var pos_side: int = [0,1,2,3].pick_random()
 		match pos_side:
 			0:
@@ -61,6 +61,6 @@ func generate_random_position_on_rectangle(size : Vector2)->Vector2:
 			3:
 				spawn_pos_1 = top_left
 				spawn_pos_2 = bottom_left
-		x_spawn = randf_range(spawn_pos_1.x,spawn_pos_2.x)
-		y_spawn = randf_range(spawn_pos_1.y,spawn_pos_2.y)
-	return Vector2(x_spawn,y_spawn)
+		spawn_point.x = randf_range(spawn_pos_1.x,spawn_pos_2.x)
+		spawn_point.y = randf_range(spawn_pos_1.y,spawn_pos_2.y)
+	return Vector2(spawn_point)

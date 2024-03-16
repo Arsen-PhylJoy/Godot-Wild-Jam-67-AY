@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal health_changed(max_health: float,current_health:float)
+	
 
 @export var export_speed: float = 150.0
 @export var export_health: float = 100.0
@@ -9,11 +10,8 @@ signal health_changed(max_health: float,current_health:float)
 @onready var _silliness_sprite: Sprite2D = %Silliness
 @onready var _player_sprite: Sprite2D = %PlayerSprite
 @onready var _anim_player: AnimationPlayer = %AnimationPlayer
-
-var peculiarities: RPeculiarities = RPeculiarities.new()
-
-var _speed: float = export_speed
-var _health: float = export_health:
+@onready var _speed: float = export_speed
+@onready var _health: float = export_health:
 	set(value):
 		_health = value
 		health_changed.emit(export_health,_health)
@@ -22,6 +20,8 @@ var _health: float = export_health:
 			Utility.show_retry_button()
 			queue_free()
 var _has_slow_penalty: bool = false
+var peculiarities: RPeculiarities = RPeculiarities.new()
+
 
 func _ready() -> void:
 	_health = export_health
