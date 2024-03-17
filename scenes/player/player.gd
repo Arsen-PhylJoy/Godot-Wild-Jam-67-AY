@@ -119,6 +119,7 @@ func use_ability()->void:
 	_player_sprite.modulate = Color.GOLD
 	_speed*=3
 	await get_tree().create_timer(3.0).timeout
+	GigaSoundManager.power_up.stop()
 	_speed = export_speed
 	_is_invulnerable = false
 	if(peculiarities.silliness == peculiarities.ESilliness.HAT):

@@ -9,7 +9,7 @@ signal next_limit_changed(value:int)
 @onready var _score_ui: ScoreUI = %ScoreUI
 @onready var food_spawners_collection: Node = %FoodSpawners
 @onready var _player_ref: Player = %Player
-
+var _is_win: bool = false
 var _current_limit : int = limits[0]:
 	set(value):
 		current_limit_changed.emit(value)
@@ -34,22 +34,24 @@ func _ready() -> void:
 			food.global_position =  i.global_position
 
 func _update_current_points(_value: int)->void:
-	if(_index_of_current_limit+2 > limits.size() and Score.score >= _current_limit ):
-		LevelManager.load_level("res://levels/game/win_window.tscn")
-	elif(_index_of_current_limit+3 > limits.size() and Score.score >= _current_limit ):
-		_current_limit = limits[_index_of_current_limit+1]
-		_next_limit = 0
-		_score_ui.set_limits(_current_limit,_next_limit)
-		_index_of_current_limit+=1
-		Score.score = 0
-		_player_ref.show_parasite()
-	elif( Score.score >= _current_limit):
-		_current_limit = limits[_index_of_current_limit+1]
-		_next_limit = limits[_index_of_current_limit+2]
-		_score_ui.set_limits(_current_limit,_next_limit)
-		_index_of_current_limit+=1
-		Score.score = 0
-		_player_ref.show_parasite()
+	if(_is_win == false):
+		if(_index_of_current_limit+2 > limits.size() and Score.score >= _current_limit ):
+			LevelManager.load_level("res://levels/game/win_window.tscn")
+			_is_win = true
+		elif(_index_of_current_limit+3 > limits.size() and Score.score >= _current_limit ):
+			_current_limit = limits[_index_of_current_limit+1]
+			_next_limit = 0
+			_score_ui.set_limits(_current_limit,_next_limit)
+			_index_of_current_limit+=1
+			Score.score = 0
+			_player_ref.show_parasite()
+		elif( Score.score >= _current_limit):
+			_current_limit = limits[_index_of_current_limit+1]
+			_next_limit = limits[_index_of_current_limit+2]
+			_score_ui.set_limits(_current_limit,_next_limit)
+			_index_of_current_limit+=1
+			Score.score = 0
+			_player_ref.show_parasite()
 		
 func _on_exit()->void:
 	GigaSoundManager.music.stop()
