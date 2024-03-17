@@ -10,11 +10,11 @@
 [ext_resource type="Shader" path="res://shaders/gradient.gdshader" id="8_yb3qv"]
 [ext_resource type="Texture2D" uid="uid://xaikviiy27mj" path="res://resources/gradients/reward_label_gradient.tres" id="9_o2eir"]
 [ext_resource type="Theme" uid="uid://y2a6okj5k8kv" path="res://resources/ui.tres" id="10_q4wt6"]
-[ext_resource type="Texture2D" uid="uid://bcdejjmphjy06" path="res://hp_frame.png" id="11_dgvt0"]
+[ext_resource type="Texture2D" uid="uid://bcdejjmphjy06" path="res://assets/graphic/ui/hp_frame.png" id="11_dgvt0"]
 [ext_resource type="SpriteFrames" uid="uid://b3v2s3iw071xh" path="res://resources/small_parasite_frames.tres" id="11_ll7bm"]
-[ext_resource type="Texture2D" uid="uid://du2h7cgib7cmv" path="res://hp.png" id="12_i6k0r"]
-[ext_resource type="Texture2D" uid="uid://byib16iud4xyo" path="res://combo_frame.png" id="13_wbg7o"]
-[ext_resource type="Texture2D" uid="uid://4j7j1ns8dc5o" path="res://combo.png" id="14_73o2e"]
+[ext_resource type="Texture2D" uid="uid://du2h7cgib7cmv" path="res://assets/graphic/ui/hp.png" id="12_i6k0r"]
+[ext_resource type="Texture2D" uid="uid://byib16iud4xyo" path="res://assets/graphic/ui/combo_frame.png" id="13_wbg7o"]
+[ext_resource type="Texture2D" uid="uid://4j7j1ns8dc5o" path="res://assets/graphic/ui/combo.png" id="14_73o2e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_slyfq"]
 shader = ExtResource("8_yb3qv")

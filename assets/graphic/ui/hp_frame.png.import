@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4j7j1ns8dc5o"
-path="res://.godot/imported/combo.png-4a6461ccd19d0d79684e49b606113e8f.ctex"
+uid="uid://bcdejjmphjy06"
+path="res://.godot/imported/hp_frame.png-b769090b5d5f98abfa96969fe5abd1bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://combo.png"
-dest_files=["res://.godot/imported/combo.png-4a6461ccd19d0d79684e49b606113e8f.ctex"]
+source_file="res://assets/graphic/ui/hp_frame.png"
+dest_files=["res://.godot/imported/hp_frame.png-b769090b5d5f98abfa96969fe5abd1bc.ctex"]
 
 [params]
 
