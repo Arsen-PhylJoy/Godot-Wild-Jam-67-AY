@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/win.wav-71b5844097be534f75738a4836ce0076.samp
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

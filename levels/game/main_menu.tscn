@@ -53,6 +53,7 @@ grow_vertical = 2
 texture = ExtResource("4_fls4s")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Wrapper"]
+layout_mode = 0
 offset_left = 23.0
 offset_top = 815.0
 offset_right = 743.0

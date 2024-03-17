@@ -1,18 +1,20 @@
-[gd_scene load_steps=26 format=3 uid="uid://bycmbjkvio3uj"]
+[gd_scene load_steps=28 format=3 uid="uid://bycmbjkvio3uj"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_pbwq4"]
 [ext_resource type="Texture2D" uid="uid://c47mukvoqk0tf" path="res://assets/graphic/parasite/parasit_0.png" id="2_0qmq7"]
 [ext_resource type="Texture2D" uid="uid://bkii88jvg8ngd" path="res://assets/graphic/parasite/parasit_eye.png" id="3_pk2nl"]
 [ext_resource type="Script" path="res://scenes/player/player_ui.gd" id="3_si45y"]
 [ext_resource type="Texture2D" uid="uid://bhahv5gjk1puq" path="res://assets/graphic/sillinesses/silly_1.png" id="4_nt86d"]
-[ext_resource type="Texture2D" uid="uid://rnnwdcugup6d" path="res://assets/graphic/not_release_assets/ui/bgload.png" id="4_ssveq"]
 [ext_resource type="Texture2D" uid="uid://fi7q1rsaa263" path="res://assets/graphic/sillinesses/silly_2.png" id="5_fhq6t"]
-[ext_resource type="Texture2D" uid="uid://b7vari54l8do0" path="res://assets/graphic/not_release_assets/ui/load.png" id="5_wfk6j"]
 [ext_resource type="Texture2D" uid="uid://don8hjugbqdbs" path="res://assets/graphic/sillinesses/silly_3.png" id="6_fh2up"]
 [ext_resource type="Shader" path="res://shaders/gradient.gdshader" id="8_yb3qv"]
 [ext_resource type="Texture2D" uid="uid://xaikviiy27mj" path="res://resources/gradients/reward_label_gradient.tres" id="9_o2eir"]
 [ext_resource type="Theme" uid="uid://y2a6okj5k8kv" path="res://resources/ui.tres" id="10_q4wt6"]
+[ext_resource type="Texture2D" uid="uid://bcdejjmphjy06" path="res://hp_frame.png" id="11_dgvt0"]
 [ext_resource type="SpriteFrames" uid="uid://b3v2s3iw071xh" path="res://resources/small_parasite_frames.tres" id="11_ll7bm"]
+[ext_resource type="Texture2D" uid="uid://du2h7cgib7cmv" path="res://hp.png" id="12_i6k0r"]
+[ext_resource type="Texture2D" uid="uid://byib16iud4xyo" path="res://combo_frame.png" id="13_wbg7o"]
+[ext_resource type="Texture2D" uid="uid://4j7j1ns8dc5o" path="res://combo.png" id="14_73o2e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_slyfq"]
 shader = ExtResource("8_yb3qv")
@@ -504,9 +506,9 @@ offset_left = -0.5
 offset_right = 0.5
 offset_bottom = 1.0
 grow_horizontal = 2
-texture_under = ExtResource("4_ssveq")
-texture_progress = ExtResource("5_wfk6j")
-texture_progress_offset = Vector2(8.515, 3.655)
+value = 100.0
+texture_under = ExtResource("11_dgvt0")
+texture_progress = ExtResource("12_i6k0r")
 
 [node name="Ability" type="TextureProgressBar" parent="PlayerUI"]
 unique_name_in_owner = true
@@ -520,22 +522,25 @@ offset_bottom = 526.0
 grow_horizontal = 2
 rotation = -1.5708
 value = 100.0
-texture_under = ExtResource("4_ssveq")
-texture_progress = ExtResource("5_wfk6j")
-texture_progress_offset = Vector2(8.515, 3.655)
+texture_under = ExtResource("13_wbg7o")
+texture_progress = ExtResource("14_73o2e")
 
 [node name="AbilityUseLabel" type="Label" parent="PlayerUI/Ability"]
 layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.162
+anchor_bottom = 1.0
 offset_left = -4.0
 offset_top = -5.0
-offset_right = 26.0
-offset_bottom = 56.0
+offset_right = 60.0
+offset_bottom = 151.742
+grow_vertical = 2
 rotation = 1.5708
 pivot_offset = Vector2(-4.51, 3.595)
 size_flags_horizontal = 4
 theme = ExtResource("10_q4wt6")
 theme_override_font_sizes/font_size = 60
-text = "E"
+text = " E"
 
 [node name="AnimationPlayerSpeedUP" type="AnimationPlayer" parent="PlayerUI"]
 unique_name_in_owner = true

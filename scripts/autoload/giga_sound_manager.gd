@@ -42,5 +42,6 @@ func _ready() -> void:
 	add_child(music)
 	add_child(pop_bubble)
 	add_child(power_up)
+	add_child(win)
 	add_child(lose)
 	
