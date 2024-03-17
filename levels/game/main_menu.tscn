@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2o53pvb5hv6b"]
+[gd_scene load_steps=11 format=3 uid="uid://b2o53pvb5hv6b"]
 
 [ext_resource type="Script" path="res://levels/game/main_menu.gd" id="1_052tq"]
 [ext_resource type="Theme" uid="uid://y2a6okj5k8kv" path="res://resources/ui.tres" id="2_y5idf"]
 [ext_resource type="Texture2D" uid="uid://dbx7ppg1yacd3" path="res://assets/graphic/ui/button_hover.png" id="3_2huuc"]
 [ext_resource type="PackedScene" uid="uid://b2ncqtse6eo6a" path="res://scenes/ui/sound_settings.tscn" id="3_oeepu"]
+[ext_resource type="Texture2D" uid="uid://dimdhfkbyw7n8" path="res://assets/graphic/silliness_wild_card.png" id="4_a4vh3"]
 [ext_resource type="Texture2D" uid="uid://dt0j0r77ogvi" path="res://assets/graphic/ui/button_normal.png" id="4_eqix4"]
 [ext_resource type="Texture2D" uid="uid://bl2md8rkh0wqv" path="res://assets/graphic/ui/bg_menu.png" id="4_fls4s"]
 
@@ -50,6 +51,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_fls4s")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Wrapper"]
+offset_left = 23.0
+offset_top = 815.0
+offset_right = 743.0
+offset_bottom = 1823.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_a4vh3")
 
 [node name="PlayButton" type="Button" parent="CanvasLayer/Wrapper"]
 unique_name_in_owner = true
