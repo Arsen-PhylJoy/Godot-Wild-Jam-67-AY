@@ -1,3 +1,4 @@
+class_name  GameLevel
 extends Node
 
 signal current_limit_changed(value:int)

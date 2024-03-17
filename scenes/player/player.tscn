@@ -435,7 +435,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(4, 4)
-collision_mask = 7
+collision_mask = 5
 script = ExtResource("1_pbwq4")
 
 [node name="Left" type="CollisionPolygon2D" parent="."]
@@ -533,7 +533,7 @@ anchor_bottom = 1.0
 offset_left = -4.0
 offset_top = -5.0
 offset_right = 60.0
-offset_bottom = 151.742
+offset_bottom = 219.62
 grow_vertical = 2
 rotation = 1.5708
 pivot_offset = Vector2(-4.51, 3.595)
