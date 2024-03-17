@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ntevg7dg0p6k"]
+[gd_scene load_steps=11 format=3 uid="uid://ntevg7dg0p6k"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_f0ca6"]
 [ext_resource type="Texture2D" uid="uid://is5dhf2cenit" path="res://assets/graphic/enemies/enemy_1.png" id="1_lb1xl"]
@@ -6,12 +6,34 @@
 [ext_resource type="Texture2D" uid="uid://fi7q1rsaa263" path="res://assets/graphic/sillinesses/silly_2.png" id="4_om8qu"]
 [ext_resource type="Texture2D" uid="uid://bhahv5gjk1puq" path="res://assets/graphic/sillinesses/silly_1.png" id="5_58e2h"]
 [ext_resource type="Texture2D" uid="uid://don8hjugbqdbs" path="res://assets/graphic/sillinesses/silly_3.png" id="6_vrmgu"]
+[ext_resource type="Theme" uid="uid://y2a6okj5k8kv" path="res://resources/ui.tres" id="7_rh1vw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wl32p"]
 radius = 31.95
 height = 94.1
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("_self", "_enemy_sprite", "_silliness_sprite_hat", "_silliness_sprite_eyes", "_silliness_sprite_moustache")]
+[sub_resource type="Animation" id="Animation_jymqw"]
+resource_name = "destruction"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_th6s8"]
+_data = {
+"destruction": SubResource("Animation_jymqw")
+}
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("_self", "_enemy_sprite", "_silliness_sprite_hat", "_silliness_sprite_eyes", "_silliness_sprite_moustache", "_destruction_animation")]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_f0ca6")
@@ -20,6 +42,7 @@ _enemy_sprite = NodePath("EnemySprite2D")
 _silliness_sprite_hat = NodePath("SillyHat")
 _silliness_sprite_eyes = NodePath("SillyEyes")
 _silliness_sprite_moustache = NodePath("SillyMoustache")
+_destruction_animation = NodePath("AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -0.716228
@@ -55,3 +78,17 @@ position = Vector2(-9, 9)
 rotation = 0.854311
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_vrmgu")
+
+[node name="points" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -5.0
+offset_top = -79.0
+offset_right = 35.0
+offset_bottom = -56.0
+theme = ExtResource("7_rh1vw")
+text = "24"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_th6s8")
+}

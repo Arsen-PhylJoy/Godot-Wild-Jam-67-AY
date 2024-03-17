@@ -22,8 +22,7 @@ signal ability_changed(max_ability: float,current_ability:float)
 		health_changed.emit(export_health,_health)
 		if(value <= 0):
 			Score.score = 0
-			Utility.show_retry_button()
-			queue_free()
+			LevelManager.load_level("res://levels/game/main_menu.tscn")
 @onready var ability_charge: float = 0:
 	set(value):
 		if(value>=100):

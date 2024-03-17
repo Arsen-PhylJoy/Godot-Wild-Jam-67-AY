@@ -11,10 +11,9 @@ signal rewarded(reward: int)
 @export var _silliness_sprite_hat: Sprite2D
 @export var _silliness_sprite_eyes: Sprite2D 
 @export var _silliness_sprite_moustache: Sprite2D
+@export var _destruction_animation: AnimationPlayer
 
-
-#divide by two because we are using both move_and_collide to return data about collision and move_and_slide to slide
-@onready var _speed: float = export_speed/2
+@onready var _speed: float = export_speed
 
 var _damage_multiplier: float = 1.0
 
@@ -50,13 +49,13 @@ func _ready() -> void:
 	(self as CharacterBody2D).scale = Vector2(mult,mult)
 	_damage_multiplier = mult
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if(_player_ref!=null):
 		velocity = _speed * _self.global_position.direction_to(_player_ref.global_position)
 	else:
 		velocity = Vector2.ZERO
-	var collide_data: KinematicCollision2D = move_and_collide(velocity*delta)
 	move_and_slide()
+	var collide_data: KinematicCollision2D = _self.get_last_slide_collision()
 	if(collide_data != null and collide_data.get_collider() is Player):
 		var player_peculiarities: RPeculiarities = (collide_data.get_collider() as Player).peculiarities
 		if((collide_data.get_collider() as Player)._is_invulnerable):
@@ -77,4 +76,7 @@ func _physics_process(delta: float) -> void:
 			destroy_self()
 
 func destroy_self()->void:
+	set_physics_process(false)
+	_destruction_animation.play("destruction")
+	await _destruction_animation.animation_finished
 	queue_free()

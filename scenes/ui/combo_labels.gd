@@ -16,7 +16,10 @@ var _points_to_next_x: int = 100
 func _ready() -> void:
 	if _x_progess_bar.value_changed.connect(_update_x_progress_bar): printerr("Fail: ",get_stack())
 	if _gradient_update_timer.timeout.connect(_random_change_gradient_offsets): printerr("Fail: ",get_stack())
-			
+
+func _physics_process(_delta: float) -> void:
+	_x_progess_bar.value-=0.1
+
 func _calculate(reward: int)->void:
 	var result_reward:int = reward * _multiplicator
 	_current_points+=result_reward
@@ -29,9 +32,9 @@ func _calculate(reward: int)->void:
 		_lower_multiplicator()
 
 func _update_x_progress_bar(new_value: float)->void:
-	if(new_value>=100):
+	if(new_value>=100 and _multiplicator != _MULTIPLICATOR.X16):
 		_increase_multiplicator()
-		_x_progess_bar.value = 25
+		_x_progess_bar.value = 50
 	elif(new_value<=0):
 		_lower_multiplicator()
 		
