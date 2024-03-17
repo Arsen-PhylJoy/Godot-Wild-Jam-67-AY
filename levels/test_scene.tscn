@@ -1,11 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwag35tr4kbg2"]
+[gd_scene load_steps=10 format=3 uid="uid://bwag35tr4kbg2"]
 
+[ext_resource type="Script" path="res://levels/test_scene.gd" id="1_523s4"]
 [ext_resource type="Texture2D" uid="uid://is5dhf2cenit" path="res://assets/graphic/enemies/enemy_1.png" id="1_mkbou"]
 [ext_resource type="Texture2D" uid="uid://cab5ey23rifvi" path="res://assets/graphic/enemies/enemy_2.png" id="2_572dk"]
 [ext_resource type="Texture2D" uid="uid://b2kv4iq82ytrr" path="res://assets/graphic/enemies/enemy_3.png" id="3_2fqh8"]
 [ext_resource type="Texture2D" uid="uid://b7du66mp7w35c" path="res://assets/graphic/enemies/enemy_4.png" id="4_uvufl"]
+[ext_resource type="AudioStream" uid="uid://q66sqlsa8wna" path="res://assets/sound/pop1.ogg" id="6_wj8s5"]
+[ext_resource type="AudioStream" uid="uid://cmth0t5s111jm" path="res://assets/sound/pop2.ogg" id="7_qbqas"]
+[ext_resource type="AudioStream" uid="uid://dx2d63vorbetd" path="res://assets/sound/pop3.ogg" id="8_hb5b5"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cdncr"]
+streams_count = 3
+stream_0/stream = ExtResource("6_wj8s5")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_qbqas")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_hb5b5")
+stream_2/weight = 1.0
 
 [node name="TestScene" type="Node"]
+script = ExtResource("1_523s4")
 
 [node name="Enemy1" type="Sprite2D" parent="."]
 modulate = Color(0.25098, 1, 1, 1)
@@ -26,3 +40,6 @@ texture = ExtResource("3_2fqh8")
 modulate = Color(0, 0.980392, 0.129412, 1)
 position = Vector2(871, -238)
 texture = ExtResource("4_uvufl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_cdncr")

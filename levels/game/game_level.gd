@@ -21,7 +21,10 @@ var _index_of_current_limit: int = 1
 var food_ps: PackedScene = preload("res://scenes/items/food.tscn")
 
 func _ready() -> void:
+	GigaSoundManager.music.play()
 	if Score.score_changed.connect(_update_current_points): printerr("Fail: ",get_stack())
+	if (self as Node).tree_exited.connect(_on_exit): printerr("Fail: ",get_stack())
+	_score_ui.set_limits(_current_limit,_next_limit)
 	for i: Marker2D in food_spawners_collection.get_children():
 		var chance_to_spawn: int = randi_range(0,4)
 		if( chance_to_spawn == 4):
@@ -31,7 +34,7 @@ func _ready() -> void:
 
 func _update_current_points(_value: int)->void:
 	if(_index_of_current_limit+2 > limits.size() and Score.score >= _current_limit ):
-		LevelManager.load_level("res://levels/game/main_menu.tscn")
+		LevelManager.load_level("res://levels/game/win_window.tscn")
 	elif(_index_of_current_limit+3 > limits.size() and Score.score >= _current_limit ):
 		_current_limit = limits[_index_of_current_limit+1]
 		_next_limit = 0
@@ -47,3 +50,5 @@ func _update_current_points(_value: int)->void:
 		Score.score = 0
 		_player_ref.show_parasite()
 		
+func _on_exit()->void:
+	GigaSoundManager.music.stop()

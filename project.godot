@@ -21,6 +21,7 @@ Score="*res://scripts/autoload/score.gd"
 Utility="*res://scripts/autoload/utility.gd"
 LevelManager="*res://scripts/autoload/level_manager.gd"
 Settings="*res://scripts/autoload/settings.gd"
+GigaSoundManager="*res://scripts/autoload/giga_sound_manager.gd"
 
 [debug]
 

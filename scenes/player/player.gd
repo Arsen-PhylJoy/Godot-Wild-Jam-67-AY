@@ -22,8 +22,8 @@ signal ability_changed(max_ability: float,current_ability:float)
 		health_changed.emit(export_health,_health)
 		if(value <= 0):
 			Score.score = 0
-			Utility.show_retry_button()
-			queue_free()
+			GigaSoundManager.lose.play()
+			LevelManager.load_level("res://levels/game/main_menu.tscn")
 @onready var ability_charge: float = 0:
 	set(value):
 		if(value>=100):
@@ -93,6 +93,8 @@ func _physics_process(delta: float) -> void:
 		_anim_player.stop()
 		run_parasites(false)
 	else:
+		if(_anim_player.is_playing() == false):
+			_anim_player.play("movement_right")
 		run_parasites(true)
 	@warning_ignore("unused_variable")
 	var collide_data: KinematicCollision2D = move_and_collide(velocity.normalized()*_speed*delta)
@@ -107,6 +109,7 @@ func execute_slow_penalty()->void:
 	_speed = export_speed
 
 func use_ability()->void:
+	GigaSoundManager.power_up.play()
 	_anim_player_ability.play("fading_out")
 	ability_charge = 0
 	_is_invulnerable = true

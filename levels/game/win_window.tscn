@@ -1,0 +1,114 @@
+[gd_scene load_steps=12 format=3 uid="uid://6c4nm6evp0qn"]
+
+[ext_resource type="Script" path="res://levels/game/win_window.gd" id="1_afs6b"]
+[ext_resource type="Theme" uid="uid://y2a6okj5k8kv" path="res://resources/ui.tres" id="1_hs46f"]
+[ext_resource type="Texture2D" uid="uid://bl2md8rkh0wqv" path="res://assets/graphic/ui/bg_menu.png" id="1_wxfw8"]
+[ext_resource type="Texture2D" uid="uid://dt0j0r77ogvi" path="res://assets/graphic/ui/button_normal.png" id="3_g5xia"]
+[ext_resource type="Texture2D" uid="uid://dbx7ppg1yacd3" path="res://assets/graphic/ui/button_hover.png" id="4_nxr63"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3a3xs"]
+texture = ExtResource("3_g5xia")
+texture_margin_left = 35.0
+texture_margin_top = 35.0
+texture_margin_right = 35.0
+texture_margin_bottom = 35.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7llhl"]
+texture = ExtResource("4_nxr63")
+texture_margin_left = 35.0
+texture_margin_top = 35.0
+texture_margin_right = 35.0
+texture_margin_bottom = 35.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xmqky"]
+texture = ExtResource("4_nxr63")
+texture_margin_left = 35.0
+texture_margin_top = 35.0
+texture_margin_right = 35.0
+texture_margin_bottom = 35.0
+
+[sub_resource type="Animation" id="Animation_ki5ax"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(842, 608)]
+}
+
+[sub_resource type="Animation" id="Animation_ve5r1"]
+resource_name = "you_win_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(906, 660), Vector2(892, 634), Vector2(875, 592), Vector2(910, 610)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7jfo"]
+_data = {
+"RESET": SubResource("Animation_ki5ax"),
+"you_win_animation": SubResource("Animation_ve5r1")
+}
+
+[node name="WinWindow" type="Node"]
+script = ExtResource("1_afs6b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hs46f")
+texture = ExtResource("1_wxfw8")
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 842.0
+offset_top = 608.0
+offset_right = 1850.0
+offset_bottom = 856.0
+theme_override_font_sizes/font_size = 250
+text = "YOU WIN!!"
+
+[node name="Exit" type="Button" parent="CanvasLayer/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1261.0
+offset_top = 926.0
+offset_right = 1649.0
+offset_bottom = 1042.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.827451, 0.827451, 0.827451, 1)
+theme_override_colors/font_hover_color = Color(0.827451, 0.827451, 0.827451, 1)
+theme_override_colors/font_focus_color = Color(0.827451, 0.827451, 0.827451, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.827451, 0.827451, 0.827451, 1)
+theme_override_colors/font_outline_color = Color(0.0196078, 0.235294, 0.713726, 1)
+theme_override_colors/icon_normal_color = Color(0, 0.843137, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_3a3xs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7llhl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xmqky")
+text = "Exit  ^_^"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e7jfo")
+}
+autoplay = "you_win_animation"
