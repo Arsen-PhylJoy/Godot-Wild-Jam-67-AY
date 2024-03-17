@@ -377,6 +377,21 @@ _data = {
 "movement_right": SubResource("Animation_m050r")
 }
 
+[sub_resource type="Animation" id="Animation_7r54q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerUI/Ability/AbilityUseLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4, -5)]
+}
+
 [sub_resource type="Animation" id="Animation_n3tky"]
 resource_name = "fading_out"
 length = 3.0
@@ -407,21 +422,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-8, 2), Vector2(-6, -2), Vector2(-26, 22), Vector2(-7, 22), Vector2(-22, 1), Vector2(-4, 5), Vector2(-7.15256e-07, 22), Vector2(-27, -3), Vector2(-13, 10), Vector2(-7, 8), Vector2(-14, 6)]
-}
-
-[sub_resource type="Animation" id="Animation_7r54q"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerUI/Ability/AbilityUseLabel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-4, -5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4w1e8"]
@@ -566,7 +566,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.897162
+frame_progress = 0.733517
 
 [node name="Parasit1" type="AnimatedSprite2D" parent="SmallParasites"]
 visible = false
@@ -575,7 +575,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.712936
+frame_progress = 0.549291
 
 [node name="Parasit2" type="AnimatedSprite2D" parent="SmallParasites"]
 visible = false
@@ -584,7 +584,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.053838
+frame_progress = 0.890192
 
 [node name="Parasit3" type="AnimatedSprite2D" parent="SmallParasites"]
 visible = false
@@ -593,7 +593,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.253832
+frame_progress = 0.0901861
 
 [node name="Parasit4" type="AnimatedSprite2D" parent="SmallParasites"]
 visible = false
@@ -602,7 +602,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.13435
+frame_progress = 0.970705
 
 [node name="Parasit5" type="AnimatedSprite2D" parent="SmallParasites"]
 visible = false
@@ -611,7 +611,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.0408024
+frame_progress = 0.877157
 
 [node name="Parasit6" type="AnimatedSprite2D" parent="SmallParasites"]
 visible = false
@@ -620,7 +620,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.617529
+frame_progress = 0.453883
 
 [node name="Parasit7" type="AnimatedSprite2D" parent="SmallParasites"]
 visible = false
@@ -629,4 +629,4 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("11_ll7bm")
 animation = &"Move"
 autoplay = "Move"
-frame_progress = 0.216993
+frame_progress = 0.053348
